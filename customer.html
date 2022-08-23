@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers</title>
+    <style>
+        #top{
+            border: 1px solid;
+            height: 700px;
+            width: 90%;
+            margin: auto;
+            margin-top: 50px;
+            display: flex;
+            gap: 40px;
+        }
+        #top>div{
+            border: 1px solid;
+            height: 100%;
+            width: 50%;
+        }
+        #top1>div:nth-child(2)>img{
+            width: 40%;
+
+        }
+        #top1>div:nth-child(2)>h2{
+            width: 80%;
+            font-weight: lighter;
+
+        }
+        #top1>div:nth-child(2)>div{
+            display: flex;
+            gap: 20px;
+            
+
+        }
+        #top1>div:nth-child(2)>div>img{
+           width: 10%;
+           border-radius: 50%;
+            
+
+        }
+        
+        #top1>div{
+            border:1px solid;
+            height: 46%;
+        }
+        #top1>div:nth-child(1){
+            margin-bottom: 40px;
+        }
+        #top1>div:nth-child(1)>h1{
+            width: 70%;
+            font-size:40px;
+            /* font-weight:bolder */
+        }
+        #top11>button{
+            font-weight:800;
+            /* padding: 10px; */
+           padding-left: 35px;
+           padding-right: 35px;
+           border: 2px solid orangered;
+           color: orangered;
+            
+        }
+        #top11>button:hover{
+            background-color: orangered;
+            color:white ;
+        }
+        #top11{
+           display: flex; 
+           gap: 20px;
+        }
+        #top11>p{
+            color: blue;
+            font-weight: bold;
+        }
+        #top11>p:hover{
+            color: black;
+        }
+        #top-right{
+            margin-top: 60px;
+        }
+        #top-right>div:nth-child(1){
+            width: 100%;
+            height:65%;
+            background-color: #2e2bb5;
+        }
+        #top-right>div:nth-child(1)>img{
+            width: 100%;
+            height:100%;
+            border-bottom-left-radius: 120px;
+            border-bottom-right-radius: 120px;
+           
+           
+        }
+        #top-right>div:nth-child(2)>img{
+            width: 30%;
+            margin-top: 40px;
+            margin-left: 40px;
+          
+        }
+        #top-right>div:nth-child(2)>h2{
+             width: 90%;
+             text-align: center;
+            margin-left:30px ;
+            margin-right: 20px; 
+           
+            color: white;
+           
+          
+        }
+        #top-right>div:nth-child(2)>p{
+           
+            margin-left:40px ;
+            font-weight: bold;
+            color: orangered;
+           
+          
+        }
+        #top-right>div {
+            border: 1px solid;
+            height: 35%;
+        }
+        #top-right>div:nth-child(2){
+            background-color:#2e2bb5;
+           
+        }
+        @media only screen and (min-width: 500px) and (max-width: 768px) {
+            #top{
+                display: grid;
+                grid-template-rows: repeat(3,1fr);
+                height: 1350px;
+            }
+            #top1>div{
+            height: auto;
+        }
+        #top-right>div{
+           height: auto;
+        }
+         #top1>div:nth-child(1){
+            width: 400px;
+            font-size:40px;
+            /* font-weight:bolder */
+        } 
+          #top1>div:nth-child(1)>h1{
+            width: 140%;
+          }
+          #top11>button{
+            /* font-weight:800; */
+            /* padding: 10px; */
+           padding-left: 5px;
+           padding-right: 5px;
+          
+           /* border: 2px solid orangered;
+           color: orangered; */
+          
+        }
+        #top1>div:nth-child(2)>h2{
+            width: 140%;
+          }
+          #top-right{
+            margin-top: -10px;
+          }
+       
+      
+
+
+
+        }
+    </style>
+</head>
+<body>
+    <div id="top"> 
+       <div id="top1">
+        <div>
+            <h1>
+                Chargebee powers subscriptions for businesses of all sizes.
+            </h1>
+            <div id="top11">
+            <button>Sign up for free</button>
+            <p>Talk to us!</p></div>
+        </div>
+        <div>
+            <img src="https://webstatic.chargebee.com/assets/web/518/images/home/testimonial/cb-study.png"/>
+            <h2>... Integration was easy and the customer support provided was excellent. This is huge considering how deficient many players in the space are when ... </h2>
+            <div>
+                <img src="https://webstatic.chargebee.com/assets/web/518/images/case-study/voitek.jpeg"/>
+                <p>Voitek Sobieszczanski, Director of Finance & Operations</p>
+            </div>
+        </div>
+       </div>
+       <div id="top-right">
+        <div>
+            <img src="https://webstatic.chargebee.com/assets/web/518/images/case-study/whiteboard/whiteboard-banner.jpg"/>
+        </div>
+        <div>
+            <img src="https://webstatic.chargebee.com/assets/web/518/images/case-study/whiteboard/whiteboard-logo-white.png"/>
+            <h2>How Whiteboard reduced Churn by 100% using Chargebee and increased their MRR by 35% with improvede billing operations</h2>
+        <p>Read The Story ~> </p>
+        </div>
+       </div> 
+
+
+
+
+
+    </div>
+</body>
+</html>
