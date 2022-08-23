@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.carousel {
+    width: 90%;
+    height: 450px;
+    margin: auto;
+    margin-top: 30px;
+    background-color: black;
+}
+
+.carousel-cell {
+    display: flex;
+    gap: 20px;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    gap: 20px;
+}
+
+.content {
+    width: 60%;
+    height: 100%;
+    color: #fff;
+}
+
+.content_image {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.broad {
+    font-size: 2.5rem;
+    margin-top: 20px;
+}
+
+.box1 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+button {
+    padding: 8px;
+    border-radius: 30px;
+    border: none;
+    background-color: blueviolet;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+}
+
+.front {
+    width: 300px;
+    height: 300px;
+    margin-top: 30px;
+}
+
+.per_name {
+    color: #fff;
+    margin-top: 130px;
+    margin-left: 20px;
+}
+
+.per_post {
+    color: #fff;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.marquee {
+    width: 80vw;
+    height: 60px;
+    margin: auto;
+    margin-top: 100px;
+    background-color: #111;
+    color: #fff;
+    overflow: hidden;
+}
+
+.marquee:before {
+    position: absolute;
+    top: 0;
+    width: 10rem;
+    height: 100%;
+    left: 0;
+    background: linear-gradient(to right, #111 0%, transparent 100%);
+    z-index: 1;
+}
+
+.marquee:after {
+    position: absolute;
+    top: 0;
+    width: 10rem;
+    height: 100%;
+    right: 0;
+    background: linear-gradient(to left, #111 0%, transparent 100%);
+    z-index: 1;
+}
+
+.marquee-content {
+    list-style: none;
+    height: 100%;
+    display: flex;
+    animation: scrolling 15s linear infinite;
+}
+
+@keyframes scrolling {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-180vw);
+    }
+}
+
+.marquee-content li {
+    width: 20vw;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+}
