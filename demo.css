@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap");
+body,html {
+    margin: 0;
+    padding: 0;
+    font-family: "IBM Plex Sans",sans-serif;
+ }
+ .top_bg{
+      background-color: #5b00b6;
+      top: 0;
+          right: -100px;
+          bottom: 0;
+          left: 0;
+          border-radius: 0 0 0 100px;
+          transform: rotate(-12deg);
+          transform-origin: left;
+          height: 50rem;
+          position: absolute;
+          background: linear-gradient(106.71deg, #4300A3 11.13%, #6100BB 65.15%, #A700F1 96.91%);
+          z-index: -1; 
+ }
+#logo{
+display: flex;
+/* border: 1px solid red; */
+height: 125px;
+width: 100%;
+margin-bottom: 10px;
+/* margin-top: 90px; */
+display: block;
+}
+#logo img{
+width: 9%;
+margin: 0px 0px 0px 1030px;
+margin-top: 70px;
+}
+#heading{
+display: flex;
+color: white;
+
+}
+#para{
+height: auto;
+width: 37%;
+/* border: 1px solid red; */
+font-size: 30px;
+margin-left: 200px;
+font-weight:700;
+}
+#para>h1{
+margin-bottom: -10px;
+}
+h1{
+      font-size: 44px;
+      font-weight: 700;
+}
+#form{
+
+background: #fff;
+box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+border-radius: 3px;
+padding: 50px 40px;
+text-align: center;
+}
+input[type=text],[type=email]{
+      box-sizing: border-box; 
+       padding: 20px;
+       width: 100%;
+       border: 0;
+ }
+ input{
+      border: none;
+      outline: none;
+      /* background-position: center left;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    padding-left: 28px; */
+ }
+ input::after{
+      border: none;
+      outline: none;
+ }
