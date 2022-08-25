@@ -21,7 +21,7 @@ body,html {
 #logo{
 display: flex;
 /* border: 1px solid red; */
-height: 125px;
+height: 130px;
 width: 100%;
 margin-bottom: 10px;
 /* margin-top: 90px; */
@@ -34,47 +34,139 @@ margin-top: 70px;
 }
 #heading{
 display: flex;
-color: white;
-
+margin: auto;
 }
 #para{
 height: auto;
-width: 37%;
+width: 30%;
 /* border: 1px solid red; */
 font-size: 30px;
 margin-left: 200px;
 font-weight:700;
 }
 #para>h1{
-margin-bottom: -10px;
+margin-bottom: -30px;
 }
 h1{
-      font-size: 44px;
-      font-weight: 700;
+      font-size: 50px;
+      font-weight: 800;
+      color: white;
+}
+h6{
+      color: white;
 }
 #form{
-
 background: #fff;
 box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
-border-radius: 3px;
-padding: 50px 40px;
-text-align: center;
+border-radius: 4px;
+width: 30%;
+padding: 55px 25px;
+box-sizing: border-box;
+margin-left: 140px;
+
 }
-input[type=text],[type=email]{
-      box-sizing: border-box; 
-       padding: 20px;
-       width: 100%;
-       border: 0;
- }
- input{
+.inputs{
       border: none;
       outline: none;
-      /* background-position: center left;
-    background-repeat: no-repeat;
-    background-size: 16px;
-    padding-left: 28px; */
+    padding-left: 28px;
+    margin-top: 16px;
  }
- input::after{
-      border: none;
-      outline: none;
- }
+input::placeholder{
+      font-size: 13px;
+      font-family: "IBM Plex Sans",sans-serif;
+}
+.description{
+      box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  width: 100%;
+  border: 0;
+  outline: none;
+  height: 75px;
+  margin-bottom: 65px;
+}
+.btn{
+      font-family: "IBM Plex Sans",sans-serif;
+    padding: 12px 25px;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+      background: linear-gradient(106.71deg,#4300a3 11.13%,#6100bb 85.15%,#a700f1 116.91%)
+}
+.btn+p{
+      font-size: 13px;
+      color: gray;
+}
+a{
+      text-decoration: none;
+       color: blue;
+      font-weight: 500;
+}
+.logo2,.second-para{
+      display: flex;
+      margin: auto;
+      width: 75%;
+      margin-top: 80px;
+      height: auto;
+}
+.icon img{
+      width: 80%;
+}
+.second-para>div>:nth-child(1),:nth-child(3){
+   color: rgb(53, 50, 50);
+   font-size: 23px;
+   line-height: 1.6;
+   font-weight: 100;
+}
+.second-para>div>:nth-child(2){
+      color: rgb(31, 29, 29);
+      font-size: 27px;
+}
+.img-mid img{
+      width: 50%;
+      /* border: 1px solid red; */
+      margin-top: 120px;
+      margin-left: 265px;
+}
+.para-mid{
+      width: 64%;
+     /* border: 1px solid blue; */
+      height: 340px;
+}
+.para-mid>h1{
+      margin-bottom: -20px;
+}
+.para-mid>h1+p{
+      font-size: 17px;
+      font-weight: 380;
+}
+ .second-para{
+      border-bottom: 1px solid rgb(31, 30, 30);
+      margin-top: 120px;
+
+} 
+
+.footer{
+display: flex;
+width: 75%;
+margin: auto;
+margin-top: 30px;
+}
+.footer>div{
+      display: flex;
+      
+}
+
+.footer img{
+      width: 30%;
+
+}
+.abc{
+      margin-left: -180px;
+}
+
+
+
+
+
+
