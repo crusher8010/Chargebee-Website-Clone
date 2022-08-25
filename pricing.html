@@ -5,657 +5,554 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plans and Pricing</title>
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 1.5;
-            color: #242438;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        .hero_area {
-            background: linear-gradient(100.96deg, #4300A3 33.34%, #6100BB 71.36%, #A700F1 104.8%);
-            padding-top: 150px;
-            padding-bottom: 20px;
-        }
-
-        @media (min-width: 1200px) {
-            .container {
-                width: 1170px;
-            }
-        }
-
-        .container {
-            padding-right: 15px;
-            padding-left: 15px;
-            margin-right: auto;
-            margin-left: auto;
-        }
-
-        .container::before {
-            display: table;
-            content: " ";
-        }
-
-        .row {
-            margin-right: -15px;
-            margin-left: -15px;
-        }
-
-        .hero_area .p-header h1 {
-            color: #ffffff;
-            font-weight: 600;
-            font-size: 72px;
-            line-height: 93.6px;
-        }
-
-        .hero_area .p-header p {
-            color: #ffffff;
-            font-size: 20px;
-            line-height: 26px;
-            margin-bottom: 0px;
-            margin-top: 10px;
-        }
-
-        .hero_area .p-header p .section1 {
-            display: inline;
-        }
-
-        .hero_area .p-header p a {
-            border: 1px solid #fff;
-            padding: 7px 13px;
-            border-radius: 30px;
-        }
-
-        .hero_area .p-header p a {
-            text-transform: uppercase;
-            font-size: 10px;
-            letter-spacing: 2px;
-            font-weight: bold !important;
-            color: #ffffff;
-            position: relative;
-            top: -2px;
-        }
-
-        h1,
-        h2,
-        h3 {
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-
-        @media (min-width: 992px) {
-            .hero_area .p-header h1 {
-                font-size: 64px;
-            }
-        }
-
-        .hero_area .p-body {
-            margin: 60px 0;
-        }
-
-        .hero_area .p-body .cpr-dropd {
-            display: flex;
-            align-items: center;
-        }
-
-        .hero_area .p-body .cpr-dropd .cpr-toggle {
-            display: flex;
-            border-radius: 16px;
-            align-items: center;
-            height: 100%;
-            background: rgba(242, 233, 255, 0.4);
-        }
-
-        .hero_area .p-body .cpr-dropd .cpr-toggle--year .cpr-toggle__year {
-            background-color: #ffffff;
-            border-radius: 16px;
-            color: #4401A3;
-            transition: background-color 0.5s ease;
-        }
-
-        .hero_area .p-body .cpr-dropd .cpr-toggle div {
-            text-transform: uppercase;
-            color: #ffffff;
-            font-size: 14px;
-            font-weight: bold;
-            padding: 5px 16px;
-            cursor: pointer;
-        }
-
-        .hero_area .p-body .cpr-dropd .cpr-dropd__container {
-            margin-left: 90px;
-        }
-
-        .hero_area .p-body .cpr-dropd .cpr-dropd__container .cpr-dropd__select {
-            display: flex;
-            padding-left: 0px;
-            margin-bottom: 0px;
-            border-radius: 16px;
-            background-color: rgba(242, 233, 255, 0.4);
-        }
-
-        ul {
-            display: block;
-            list-style-type: disc;
-            margin-block-start: 1em;
-            margin-block-end: 1em;
-            margin-inline-start: 0px;
-            margin-inline-end: 0px;
-            padding-inline-start: 40px;
-        }
-
-        .hero_area .p-body .cpr-dropd .cpr-dropd__container .cpr-dropd__select li {
-            list-style-type: none;
-            text-transform: uppercase;
-            color: #ffffff;
-            font-size: 14px;
-            font-weight: bold;
-            padding: 5px 14px;
-            cursor: pointer;
-        }
-
-        .hero_area .p-body .cpr-dropd .cpr-dropd__container .cpr-dropd__select li.active {
-            background-color: #ffffff;
-            border-radius: 16px;
-            color: #4401A3;
-            transition: background-color 0.5s ease;
-        }
-
-        .hero_area .p-body .cpr-dropd .cpr-dropd__container .cpr-dropd__select li {
-            list-style-type: none;
-            text-transform: uppercase;
-            color: #ffffff;
-            font-size: 14px;
-            font-weight: bold;
-            padding: 5px 14px;
-            cursor: pointer;
-        }
-
-        .hero_area .p-footer .p-footer-inner .p-plans {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-gap: 15px;
-            color: #ffffff;
-        }
-
-        .hero_area .p-footer .p-footer-inner .p-plans .p-plan h4 {
-            font-size: 36px;
-            line-height: 46px;
-            margin-bottom: 10px;
-            position: relative;
-        }
-
-        .hero_area .p-footer .p-footer-inner .p-plans .p-plan h4 span {
-            color: #ffc107;
-            font-size: 14px;
-            font-weight: 700;
-            position: absolute;
-            top: -18px;
-            left: 93px;
-            letter-spacing: 0.5px;
-        }
-
-        .p-footer-inner .p-plans .p-plan:first-child,
-        .p-pricing .p-plan-lists .cpr-table__col:first-child {
-            order: 1;
-        }
-
-        .p-footer-inner .p-plans .p-plan:nth-child(2),
-        .p-pricing .p-plan-lists .cpr-table__col:nth-child(2) {
-            order: 2;
-        }
-
-        .p-footer-inner .p-plans .p-plan:nth-child(3),
-        .p-pricing .p-plan-lists .cpr-table__col:nth-child(3) {
-            order: 3;
-        }
-
-        .p-footer-inner .p-plans .p-plan:last-child,
-        .p-pricing .p-plan-lists .cpr-table__col:last-child {
-            order: 4;
-        }
-
-        .hero_area .p-footer .p-footer-inner .p-plans .p-plan p {
-            font-size: 16px;
-            line-height: 23px;
-        }
-
-        .p-pricing {
-            padding-top: 40px;
-            background-color: #f8f8f8;
-        }
- @media (min-width: 1200px){
-        .container {
-            width: 1170px;
-        }
- }
-    .p-pricing .p-plan-lists {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 15px
-    }
-    .p-pricing .p-plan-lists .cpr-table__col:first-child {
-        order: 1;
-    }
-        .p-pricing .p-plan-lists .cpr-table__col .cpr-plan .cpr-plan__header .cpr-plan__name {
-        display: none;
-        color: #4401A3;
-        font-weight: 400;
-        font-size: 36px;
-    }
-    .p-pricing .p-plan-lists .cpr-table__col .cpr-plan .cpr-plan__header .cpr-plan__descs {
-        display: none;
-        margin-bottom: 25px;
-        margin-top: 15px;
-    }
-        .p-pricing .p-plan-lists .cpr-table__col .cpr-plan .cpr-plan__header .cpr-plan__price h6 {
-        color: #4401A3;
-        font-size: 16px;
-        font-weight: 600;
-        min-height: 25px;
-    }
-        .p-pricing .p-plan-lists .cpr-table__col .cpr-plan .cpr-plan__header .cpr-plan__price h4 {
-        color: #000000;
-        font-size: 36px;
-        position: relative;
-        line-height: 46px;
-        margin-top: 2px;
-        letter-spacing: -0.6px;
-    }
-    .p-pricing .p-plan-lists .cpr-table__col .cpr-plan .cpr-plan__header .cpr-plan__toggle {
-        min-height: 25px;
-    }
-    .p-pricing .p-plan-lists .cpr-table__col .cpr-plan .cpr-plan__header .cpr-plan__toggle .handle-toggle {
-        font-weight: 600;
-    }
-    .p-pricing .p-plan-lists .cpr-table__col .cpr-plan .cpr-plan__header .desc-wrap {
-        margin: 15px 0 0;
-        width: 230px;
-    }
-    .p-pricing .p-plan-lists .cpr-table__col .cpr-plan .cpr-plan__header .desc-wrap .cpr-plan__desc {
-        min-height: 75px;
-        font-size: 14px;
-    }
-    strong {
-        font-weight: 700;
-    }
-    span.cpr-plan__tooltip {
-        border-bottom: 1px dashed rgba(0, 0, 0, 0.3);
-        cursor: pointer;
-    }
-    .p-pricing .p-plan-lists .cpr-table__col .cpr-plan .cpr-plan__content {
-        margin-bottom: 50px;
-    }
-    .p-pricing .p-plan-lists .cpr-table__col .cpr-plan .cpr-plan__content .cpr-plan__action .p-btn {
-        background-color: #4300A3;
-        width: 206px;
-        display: inline-block;
-        height: 57px;
-        text-align: center;
-        line-height: 57px;
-        border-radius: 4px;
-        color: #ffffff;
-        font-size: 16px;
-    }
-    .p-pricing .p-plan-lists .cpr-table__col .cpr-plan .cpr-plan__footer .cpr-plan__desc .users {
-        font-size: 24px;
-        color: #000000;
-        line-height: 31px;
-        margin-bottom: 30px;
-    }
-    .p-pricing .p-plan-lists .cpr-table__col .cpr-plan .cpr-plan__footer .cpr-plan__desc .cpr-plan__highlight {
-    margin-bottom: 14px;
-    font-weight: 600;
-    font-size: 16px;
-    }
-
-    .p-pricing .p-plan-lists .cpr-table__col .cpr-plan .cpr-plan__footer .cpr-plan__desc .cpr-plan__highlight {
-        margin-bottom: 5px;
-        font-weight: 600;
-        font-size: 14px;
-        min-height: 23px;
-    }
-        .p-pricing .p-plan-lists .cpr-table__col .cpr-plan .cpr-plan__footer .cpr-plan__desc .cpr-plan__list {
-        padding-left: 0;
-        list-style-type: none;
-    }
-    .p-pricing .p-plan-lists .cpr-table__col .cpr-plan .cpr-plan__footer .cpr-plan__desc .cpr-plan__list li {
-        position: relative;
-        padding-left: 20px;
-        font-weight: 300;
-        font-size: 14px;
-        margin-bottom: 15px;
-    }
-    
-    .p-pricing .p-plan-lists .cpr-table__col .cpr-plan .cpr-plan__footer .cpr-plan__desc .user-empty {
-        min-height: 30px;
-    }
-    .p-pricing .p-plan-lists .cpr-table__col .cpr-plan .cpr-plan__footer .cpr-plan__desc .user-empty {
-        min-height: 35px;
-    }
-    .p-pricing .p-plan-lists .cpr-table__col .cpr-plan .cpr-plan__footer .cpr-plan__desc .users {
-        font-size: 24px;
-        color: #000000;
-        line-height: 31px;
-        margin-bottom: 30px;
-    }
-        .p-pricing .p-plan-lists .cpr-table__col .cpr-plan .cpr-plan__footer .cpr-plan__desc .cpr-plan__highlight {
-        margin-bottom: 14px;
-        font-weight: 600;
-        font-size: 16px;
-    }
-
-    .p-pricing .p-plan-lists .cpr-table__col .cpr-plan .cpr-plan__footer .cpr-plan__desc .cpr-plan__highlight {
-        margin-bottom: 5px;
-        font-weight: 600;
-        font-size: 14px;
-        min-height: 23px;
-    }
-    </style>
+    <link rel="stylesheet" href="pricing.css">
 </head>
 
 <body>
-    <div class="hero_area">
-        <div class="container">
-            <div class="row">
-                <div class="p-header">
-                    <h1>
-                        Find a plan that's right for you
-                    </h1>
-                    <p>
-                        Or simply leverage the expertise of our consultation team.
-                        <a href="" class="section1">Talk to us</a>
-                    </p>
-                </div>
-                <div class="p-body">
-                    <div class="cpr-dropd">
-                        <div class="cpr-toggle cpr-toggle--year">
-                            <div class="cpr-toggle__year">Annual</div>
-                            <div class="cpr-toggle__month">Monthly</div>
+    <div>
+        <div class="hero_area">
+            <!--------------------------------------------------------------NAVBAR STARTS HERE----------------------------------------------------------->
+    <!-------------------------------------------------------------------------------------------------------------------------------------------->
+
+    <div id="navbar">                      <!-- navbar div container-->
+
+        <div id="leftt">                    <!-- navbar left side portion contianing navigation links to various pages -->
+
+<!-----------------------------------"Chargebee"----------------------------------------->
+           <a href="" style="text-decoration: none; color:white;"> 
+            <h1 id="siteName" style="font-family: 'Dancing Script', cursive;">Chargebee</h1> 
+            </a>       <!-- 1st item in left side-->
+
+<!-------------------------"Products" dropdown menu--------------------------------------->
+           
+            <div class="container1">               <!--contianer div for dropdown menu-->
+
+                <p class="head" style="font-weight:bold; color: white;">Product</p>          <!-- 2nd item in left side-->
+                
+                    <div class="dropdown">           <!-- dropdown div only visible when hovering over "Product" item in navbar-->
+
+                        <div id="one">            <!-- 1st div inside dropdown menu div. contains unordered list of links to various pages-->
+                            <ul type="none">
+                                <li style="font-weight: bold;"> Subscription Management </li>
+                                <li> <a href="">Overview</a> </li>
+                                <li> <a href="">Create & Manage Plans</a> </li>
+                                <li> <a href="">Pricing Management</a> </li>
+                                <li> <a href="">Retention</a> </li>
+                                <li> <a href="">Handle Trial Subscription</a> </li>
+                                <li> <a href="">Customer Self-service Portal</a> </li>
+                                <li> <a href="">Mobile Solutions</a> </li>
+                                <li> <a href="">Backdating Subscription</a> </li>
+                            </ul>
+                            
                         </div>
-                        <div class="cpr-dropd__container">
-                            <ul id="seleect-one" name="change-country" class="cpr-dropd__select">
-                                <li class="">USD</li>
-                                <li class="">EUR</li>
-                                <li class="">GBP</li>
-                                <li class="">AUD</li>
-                                <li class="">CAD</li>
-                                <li class="active">INR</li>
+
+                        <div id="two">
+                            <ul type="none">
+
+                                <li style="font-weight: bold;"> Billing Automation </li>
+                                <li> <a href="">Overview</a> </li>
+                                <li> <a href="">Usage Based Billing</a> </li>
+                                <li> <a href="">Invoicing Automation</a> </li>
+                                <li> <a href="">Quotes</a> </li>
+                                <li> <a href="">Proration</a> </li>
                             </ul>
                         </div>
+
+                        <div id="three">
+                            <ul type="none">
+                                <li style="font-weight: bold;">Recurring Payments</li>
+                                <li> <a href="">Overview</a> </li>
+                                <li> <a href="">Multiple Payment Methods</a> </li>
+                                <li> <a href="">Multiple Payment Gateways</a> </li>
+                                <li> <a href="">Smart Dunning</a> </li>
+                                <li> <a href="">Chargeback Management</a> </li>
+                                <li> <a href="">Checkout Experience</a> </li>
+                                <li> <a href="">Receivables</a> </li>
+                            </ul>
+                        </div>
+
+                        <div id="four">
+                            <ul type="none">
+                                <li style="font-weight: bold;">Accounting & taxes</li>
+                                <li> <a href="">Overview</a> </li>
+                                <li> <a href="">Revenue Recognition</a> </li>
+                                <li> <a href="">Manage Sales Tax</a> </li>
+                                <li> <a href="">One-Click Reconciliation</a> </li>
+                            </ul>
+                        </div>
+
+                        <div id="five">
+                            <ul type="none">
+                                <li style="font-weight: bold;">Reporting & Analytics</li>
+                                <li> <a href="">Overview</a> </li>
+                                <li> <a href="">Deferred Revenue Reporting</a> </li>
+                            </ul>
+
+                        </div>
                     </div>
-                </div>
-                <div class="p-footer">
-                    <div class="p-footer-inner">
-                        <div class="p-plans">
-                            <div class="p-plan">
-                                <h4>Launch</h4>
-                                <p>
-                                    For early-stage startups that want to spend more time developing and less on
-                                    manual operations.
-                                </p>
+
+            </div>
+<!-----------------------------------"Pricing"-------------------------------->
+
+            <p> <a href="" style="text-decoration: none; color: white;">Pricing</a> </p>
+
+<!---------------------------"Solutions" dropdown menu-------------------------->
+
+            <div class="container1">               <!--contianer div for dropdown menu-->
+
+                <p class="head" style="font-weight:bold; color: white;">Solutions</p>          <!-- 4th item in left side-->
+                
+                    <div class="dropdown" id="second_dropdown">           <!-- dropdown div only visible when hovering over "Solutions" item in navbar-->
+
+                        <div id="one">            <!-- 1st div inside dropdown menu div. contains unordered list of links to various pages-->
+                            <ul type="none">
+                                <li style="font-weight: bold;"> By Role</li>
+                                <li> <a href="">Finance</a> </li>
+                                <li> <a href="">Sales</a> </li>
+                                <li> <a href="">RevOps</a> </li>
+                            </ul>
+                            
+                        </div>
+
+                        <div id="two">
+                            <ul type="none">
+
+                                <li style="font-weight: bold;"> By Industry </li>
+                                <li> <a href="">B2B SaaS</a> </li>
+                                <li> <a href="">eCommerce</a> </li>
+                                <li> <a href="">E-Learning</a> </li>
+                                <li> <a href="">Publishing</a> </li>
+                                <li> <a href="">Video & OTT</a> </li>
+                            </ul>
+                        </div>
+
+                        <div id="three">
+                            <ul type="none">
+                                <li style="font-weight: bold;">By Strategy</li>
+                                <li> <a href="">Role Out New Pricing</a> </li>
+                                <li> <a href="">Expand Gloabally</a> </li>
+                                <li> <a href="">Move Upmarket</a> </li>
+                                <li> <a href="">Shift to Subscription</a> </li>
+                            </ul>
+                        </div>
+
+                        <div id="four">
+                            <ul type="none">
+                                <li style="font-weight: bold;">By Business Size</li>
+                                <li> <a href="">Startup</a> </li>
+                                <li> <a href="">ScaleUp</a> </li>
+                                <li> <a href="">Enterprise</a> </li>
+                                
+                            </ul>
+                        </div>
+
+                        <div id="five">
+                            <ul type="none">
+                                <li style="font-weight: bold;">By Business Model</li>
+                                <li> <a href="">Self-Serve</a> </li>
+                                <li> <a href="">Sales Driven</a> </li>
+                            </ul>
+
+                        </div>
+
+                        <div id="six">
+                            <ul type="none">
+                                <li style="font-weight: bold;">By Geography</li>
+                                <li> <a href="">Europe</a> </li>
+                                <li> <a href="">Australia</a> </li>
+                                <li> <a href="">India</a> </li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+            </div>
+            
+            <p> <a href="" style="text-decoration: none; color: white;">Customers</a> </p>
+
+<!-----------------------------"Resources" dropdown menu---------------------->
+
+            <div class="container1">               <!--contianer div for dropdown menu-->
+
+                <p class="head" style="font-weight:bold; color: white;">Resources</p>          <!-- 4th item in left side-->
+                
+                    <div class="dropdown" id="third_dropdown">           <!-- dropdown div only visible when hovering over "Solutions" item in navbar-->
+
+                        <div id="dropdown_left">
+
+                            <div class="box" style="background-color: rgb(252, 219, 224);">
+                                <p>Learn everything that falls under the umbrella of Subscription.</p>
+                                <p style="font-weight: bold"> <a href="" style="text-decoration: none; color: blue;">Learning Hub > </a> </p>
                             </div>
-                            <div class="p-plan">
-                                <h4>Rise</h4>
-                                <p>
-                                    For agile startups that want to grow their revenue with quick experiments and
-                                    data-driven decision making.
-                                </p>
+
+                            <div class="box"> 
+                                <p>Read our ever-growing stories on SaaS, and get all the growth insights you need.</p>
+                                <p style="font-weight: bold"> <a href="" style="text-decoration: none; color: blue;">Chargebee  Blog > </a> </p>
                             </div>
-                            <div class="p-plan">
-                                <h4>
-                                    Scale
-                                    <span>MOST POPULAR</span>
-                                </h4>
-                                <p>
-                                    For fast-growth scaleups that want to grow by maximizing efficiencies in their
-                                    revenue operations.
-                                </p>
+                            
+                            <div class="box"> 
+                                <p>A quick overview of Chargebee to help you understand and implement it.</p>
+                                <p style="font-weight: bold"> <a href="" style="text-decoration: none; color: blue;">Chargebee  Docs > </a>  </p> 
+                           </div>
+
+                            <div class="box"> 
+                                <p>Chargebee's in-house team of implementation experts is here ot make sure you go live with your Chargebee site at lighting-fast speed.</p>
+                                <p style="font-weight: bold"> <a href="" style="text-decoration: none; color: blue;">Profession al Services & Implementation > </a></p> 
                             </div>
-                            <div class="p-plan">
-                                <h4>Enterprise</h4>
-                                <p>
-                                    For large businesses looking for enterprise-class compliance while diversifying
-                                    revenue streams.
-                                </p>
+
+                            <div class="box"> 
+                                <p>Learn to unlock all revenure secrets to secure hyper-growth for your business. Access free certifications, course and expert masterclasses.</p>
+                                <p style="font-weight: bold"> <a href="" style="text-decoration: none; color: blue;">Subscription Academy ></a></p> 
+                            </div>
+
+                            <div class="box"></div>
+
+                            <div class="box"> 
+                                <p>Explore the best practices of all things SaaS and Subscription Billing.</p>
+                                <p style="font-weight: bold"> <a href="" style="text-decoration: none; color: blue;">Webinars > </a> </p>
+                            </div>
+
+                            <div class="box"> 
+                                <p>Learn about the possibilities that change brings about and how Chargebee recognizes & celebrates change-makers by being an enabler of change.</p>
+                                <p style="font-weight: bold"> <a href="" style="text-decoration: none; color: blue;">Champions  of Change ></a></p> 
+                            </div>
+
+                            <div class="box"></div>
+
+                        </div>
+
+                        <img src="https://library.kissclipart.com/20200128/tve/kissclipart-books-icon-book-icon-closed-book-icon-2675fc0f6ecc665d.png" alt="" id="book">
+                        <div id="dropdown_right">
+ 
+                            <p style="font-weight: bold;">The Essential Guide on Subscription Billing</p>
+
+                            <p>Wondering what you should ask yourself before choosing a Subscription Billing and Management platform?</p>
+
+                            <p> <a href="" style="font-weight: bold;">Read More > </a> </p>
+
+                        </div>
+                        
+                    </div>
+
+            </div>
+<!-----------------------------------"Partners"----------------------->
+
+            <p> <a href="" style="text-decoration: none; color: white;">Partners</a> </p>
+        </div>
+
+<!----------------------------------------------------------------------------------------------->
+
+        <div id="rightt">            <!--right-most div of navbar containing change language, login page link and "get demo" button-->
+
+            <select id="changeLang"> 
+                <option value="english">English</option>
+                <option value="deutsch">Deutsch</option>
+            </select>
+
+            <p> <a href="" style="text-decoration: none; color: black; font-weight: bold;">Login  </a> </p>
+
+            <button id="demo_btn">Get Demo > </button>
+
+
+        </div>
+    </div>
+<!----------------------------------------------------------------------------------NAVBAR ENDS HERE---------------------------------------------------->
+<!------------------------------------------------------------------------------------------------------------------------------------------------------>
+            <div class="container">
+                <div class="row">
+                    <div class="p-header">
+                        <h1>
+                            Find a plan that's right for you
+                        </h1>
+                        <p>
+                            Or simply leverage the expertise of our consultation team.
+                            <a href="" class="section1">Talk to us</a>
+                        </p>
+                    </div>
+                    <div class="p-body">
+                        <div class="cpr-dropd">
+                            <div class="cpr-toggle cpr-toggle--year">
+                                <div class="cpr-toggle__year">Annual</div>
+                                <div class="cpr-toggle__month">Monthly</div>
+                            </div>
+                            <div class="cpr-dropd__container">
+                                <ul id="seleect-one" name="change-country" class="cpr-dropd__select">
+                                    <li class="">USD</li>
+                                    <li class="">EUR</li>
+                                    <li class="">GBP</li>
+                                    <li class="">AUD</li>
+                                    <li class="">CAD</li>
+                                    <li class="active">INR</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-footer">
+                        <div class="p-footer-inner">
+                            <div class="p-plans">
+                                <div class="p-plan">
+                                    <h4>Launch</h4>
+                                    <p>
+                                        For early-stage startups that want to spend more time developing and less on
+                                        manual operations.
+                                    </p>
+                                </div>
+                                <div class="p-plan">
+                                    <h4>Rise</h4>
+                                    <p>
+                                        For agile startups that want to grow their revenue with quick experiments and
+                                        data-driven decision making.
+                                    </p>
+                                </div>
+                                <div class="p-plan">
+                                    <h4>
+                                        Scale
+                                        <span>MOST POPULAR</span>
+                                    </h4>
+                                    <p>
+                                        For fast-growth scaleups that want to grow by maximizing efficiencies in their
+                                        revenue operations.
+                                    </p>
+                                </div>
+                                <div class="p-plan">
+                                    <h4>Enterprise</h4>
+                                    <p>
+                                        For large businesses looking for enterprise-class compliance while diversifying
+                                        revenue streams.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="p-pricing">
-        <div class="container">
-            <div class="row">
-                <div class="p-plan-lists">
-                    <div class="cpr-table__col">
-                        <div class="cpr-plan">
-                            <div class="cpr-plan__header">
-                                <div class="cpr-plan__name">
-                                    Launch
-                                    <!---->
+        <div class="p-pricing">
+            <div class="container">
+                <div class="row">
+                    <div class="p-plan-lists">
+                        <div class="cpr-table__col">
+                            <div class="cpr-plan">
+                                <div class="cpr-plan__header">
+                                    <div class="cpr-plan__name">
+                                        Launch
+                                        <!---->
+                                    </div>
+                                    <div class="cpr-plan__descs">
+                                        For early-stage startups that want to spend more time developing and less on
+                                        manual operations.
+                                    </div>
+                                    <div class="cpr-plan__price">
+                                        <div class="cpr-plan__div">
+                                            <h6>INR </h6>
+                                            <h4>0/</h4>
+                                        </div>
+                                        <div class="cpr-plan__toggle">
+                                            <div class="handle-toggle">billed annually</div>
+                                        </div>
+                                    </div>
+                                    <div class="desc-wrap">
+                                        <div class="cpr-plan__desc">
+                                            for your first <strong>INR 80L</strong> in
+                                            revenue
+                                            <span data-toggle="tooltip" title="" class="cpr-plan__tooltip"
+                                                data-original-title="Once you've invoiced a total value of INR 80L, you will be auto-converted to INR 7,890/mo pricing with a 0.5% overage fee (applicable if your revenue exceeds 20L a month). For example, for INR 25L in monthly revenue, overage is calculated as 0.5% of (INR 25L - INR 20L) + INR 7,890 which is INR 10,390.">What
+                                                happens when I hit INR 80L?</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="cpr-plan__descs">
-                                    For early-stage startups that want to spend more time developing and less on
-                                    manual operations.
+                                <div class="cpr-plan__content">
+                                    <div class="cpr-plan__actions">
+                                        <div class="cpr-plan__action"><a href="/trial-signup/?ref=Launch"
+                                                class="p-btn-desktop p-btn">
+                                                Get started for free
+                                            </a></div>
+                                    </div>
                                 </div>
-                                <div class="cpr-plan__price">
-                                    <div class="cpr-plan__div">
-                                        <h6>INR </h6>
-                                        <h4>0/</h4>
+                                <div class="cpr-plan__footer">
+                                    <div class="cpr-plan__desc">
+                                        <div class="users">3 Users</div>
+                                        <div class="cpr-plan__highlight">All you need to get started</div>
+                                        <ul class="cpr-plan__list">
+                                            <li>Secure checkout (.js and hosted)</li>
+                                            <li>Support up to 6 pricing models</li>
+                                            <li>Issue credit notes</li>
+                                            <li>Dunning</li>
+                                            <li>A/R aging report</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cpr-table__col">
+                            <div class="cpr-plan">
+                                <div class="cpr-plan__header">
+                                    <div class="cpr-plan__name">Rise</div>
+                                    <div class="cpr-plan__descs">
+                                        For agile startups that want to grow their revenue with quick experiments and
+                                        data-driven decision making.
+                                    </div>
+                                    <div class="cpr-plan__price">
+                                        <div class="cpr-plan__div">
+                                            <h6>INR </h6>
+                                            <h4>19,915/</h4>
+                                        </div>
                                     </div>
                                     <div class="cpr-plan__toggle">
                                         <div class="handle-toggle">billed annually</div>
                                     </div>
-                                </div>
-                                <div class="desc-wrap">
-                                    <div class="cpr-plan__desc">
-                                        for your first <strong>INR 80L</strong> in
-                                        revenue
-                                        <span data-toggle="tooltip" title="" class="cpr-plan__tooltip"
-                                            data-original-title="Once you've invoiced a total value of INR 80L, you will be auto-converted to INR 7,890/mo pricing with a 0.5% overage fee (applicable if your revenue exceeds 20L a month). For example, for INR 25L in monthly revenue, overage is calculated as 0.5% of (INR 25L - INR 20L) + INR 7,890 which is INR 10,390.">What
-                                            happens when I hit INR 80L?</span>
+                                    <div class="desc-wrap">
+                                        <div class="cpr-plan__desc">
+                                            includes <strong>INR 4.8 Crores</strong>/<span>yr</span> revenue
+                                            <br><strong>0.6%</strong> of
+                                            <span data-toggle="tooltip" title="" class="cpr-plan__tooltip"
+                                                data-original-title="Overages are charged on monthly revenue, once the annual revenue limit is met. For INR 1L processed after exceeding the annual limit of INR 4.5Cr, the overage is calculated as 0.6% of INR 1L = INR 600.">overage
+                                                revenue</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="cpr-plan__content">
-                                <div class="cpr-plan__actions">
-                                    <div class="cpr-plan__action"><a href="/trial-signup/?ref=Launch"
-                                            class="p-btn-desktop p-btn">
-                                            Get started for free
-                                        </a></div>
+                                <div class="cpr-plan__content">
+                                    <div class="cpr-plan__actions">
+                                        <div class="cpr-plan__action"><a href="/schedule-a-demo/?ref=Rise"
+                                                class="p-btn-desktop p-btn section1">
+                                                Schedule a demo
+                                            </a></div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="cpr-plan__footer">
-                                <div class="cpr-plan__desc">
-                                    <div class="users">3 Users</div>
-                                    <div class="cpr-plan__highlight">All you need to get started</div>
-                                    <ul class="cpr-plan__list">
-                                        <li>Secure checkout (.js and hosted)</li>
-                                        <li>Support up to 6 pricing models</li>
-                                        <li>Issue credit notes</li>
-                                        <li>Dunning</li>
-                                        <li>A/R aging report</li>
-                                    </ul>
+                                <div class="cpr-plan__footer">
+                                    <div class="cpr-plan__desc">
+                                        <div class="users">10 Users</div>
+                                        <div class="cpr-plan__highlight">
+                                            Everything in Launch
+                                            <span class="adding">
+                                                +
+                                            </span>
+                                        </div>
+                                        <ul class="cpr-plan__list">
+                                            <li>Custom domain</li>
+                                            <li>Customer portal</li>
+                                            <li>Dunning</li>
+                                            <li>Multi-language support</li>
+                                            <li>Sales tax automation</li>
+                                            <li>Advanced analytics</li>
+                                            <li>CRM integration</li>
+                                            <li>Accounting integration</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="cpr-table__col">
-                        <div class="cpr-plan">
-                            <div class="cpr-plan__header">
-                                <div class="cpr-plan__name">Rise</div>
-                                <div class="cpr-plan__descs">
-                                    For agile startups that want to grow their revenue with quick experiments and
-                                    data-driven decision making.
-                                </div>
-                                <div class="cpr-plan__price">
-                                    <div class="cpr-plan__div">
-                                        <h6>INR </h6>
-                                        <h4>19,915/</h4>
+                        <div class="cpr-table__col s-u-mobile">
+                            <div class="cpr-plan">
+                                <div class="cpr-plan__header">
+                                    <div class="cpr-plan__name">
+                                        Scale
+                                        <!---->
+                                    </div>
+                                    <div class="cpr-plan__descs">
+                                        For fast-growth scaleups that want to grow by maximizing efficiencies in their
+                                        revenue operations.
+                                    </div>
+                                    <div class="cpr-plan__price">
+                                        <div class="cpr-plan__div">
+                                            <h6>INR </h6>
+                                            <h4>43,915/</h4>
+                                        </div>
+                                    </div>
+                                    <div class="cpr-plan__toggle">
+                                        <div class="handle-toggle">billed annually</div>
+                                    </div>
+                                    <div class="desc-wrap">
+                                        <div class="cpr-plan__desc">
+                                            includes <strong>INR 9.6 Crores</strong>/<span>yr</span> revenue
+                                            <strong>0.75%</strong> of
+                                            <span data-toggle="tooltip" title="" class="cpr-plan__tooltip"
+                                                data-original-title="Overages are charged on annual revenue that exceeds the given limit of 9.6Cr. For INR 1L processed after exceeding the annual limit of USD 9.6Cr, the overage is calculated as 0.75% of INR 1L = INR 750.">overage
+                                                revenue</span>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="cpr-plan__toggle">
-                                    <div class="handle-toggle">billed annually</div>
+                                <div class="cpr-plan__content">
+                                    <div class="cpr-plan__actions">
+                                        <div class="cpr-plan__action"><a href="/schedule-a-demo/?ref=Scale"
+                                                class="p-btn-desktop p-btn section1">
+                                                Schedule a demo
+                                            </a></div>
+                                    </div>
                                 </div>
-                                <div class="desc-wrap">
+                                <div class="cpr-plan__footer">
                                     <div class="cpr-plan__desc">
-                                        includes <strong>INR 4.8 Crores</strong>/<span>yr</span> revenue
-                                        <br><strong>0.6%</strong> of
-                                        <span data-toggle="tooltip" title="" class="cpr-plan__tooltip"
-                                            data-original-title="Overages are charged on monthly revenue, once the annual revenue limit is met. For INR 1L processed after exceeding the annual limit of INR 4.5Cr, the overage is calculated as 0.6% of INR 1L = INR 600.">overage
-                                            revenue</span>
+                                        <div class="users">25 Users</div>
+                                        <div class="cpr-plan__highlight">
+                                            Everything in Rise
+                                            <span class="adding">
+                                                +
+                                            </span>
+                                        </div>
+                                        <ul class="cpr-plan__list">
+                                            <li>User role management</li>
+                                            <li>Multiple payment methods</li>
+                                            <li>Advance invoices</li>
+                                            <li>Multiple tax profiles</li>
+                                            <li>Smart dunning</li>
+                                            <li>Priority phone support</li>
+                                        </ul>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="cpr-plan__content">
-                                <div class="cpr-plan__actions">
-                                    <div class="cpr-plan__action"><a href="/schedule-a-demo/?ref=Rise"
-                                            class="p-btn-desktop p-btn section1">
-                                            Schedule a demo
-                                        </a></div>
-                                </div>
-                            </div>
-                            <div class="cpr-plan__footer">
-                                <div class="cpr-plan__desc">
-                                    <div class="users">10 Users</div>
-                                    <div class="cpr-plan__highlight">
-                                        Everything in Launch
-                                        <span class="adding">
-                                            +
-                                        </span>
-                                    </div>
-                                    <ul class="cpr-plan__list">
-                                        <li>Custom domain</li>
-                                        <li>Customer portal</li>
-                                        <li>Dunning</li>
-                                        <li>Multi-language support</li>
-                                        <li>Sales tax automation</li>
-                                        <li>Advanced analytics</li>
-                                        <li>CRM integration</li>
-                                        <li>Accounting integration</li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="cpr-table__col s-u-mobile">
-                        <div class="cpr-plan">
-                            <div class="cpr-plan__header">
-                                <div class="cpr-plan__name">
-                                    Scale
-                                    <!---->
-                                </div>
-                                <div class="cpr-plan__descs">
-                                    For fast-growth scaleups that want to grow by maximizing efficiencies in their
-                                    revenue operations.
-                                </div>
-                                <div class="cpr-plan__price">
-                                    <div class="cpr-plan__div">
-                                        <h6>INR </h6>
-                                        <h4>43,915/</h4>
+                        <div class="cpr-table__col cpr-table_final">
+                            <div class="cpr-plan">
+                                <div class="cpr-plan__header">
+                                    <div class="cpr-plan__name">Enterprise</div>
+                                    <div class="cpr-plan__descs">
+                                        <span class="adding">
+                                            +
+                                        </span>
+                                        For large businesses looking for enterprise-class compliance while diversifying
+                                        revenue streams.
+                                    </div>
+                                    <div class="cpr-plan__price">
+                                        <div class="cpr-plan__div">
+                                            <h6 class="no-data"></h6>
+                                            <h4 class="rm-after">Custom</h4>
+                                        </div>
+                                    </div>
+                                    <div class="cpr-plan__toggle no-data"></div>
+                                    <div class="desc-wrap">
+                                        <div class="cpr-plan__desc cbr-mt-md">
+                                            Get a quote tailored to your requirements.
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="cpr-plan__toggle">
-                                    <div class="handle-toggle">billed annually</div>
+                                <div class="cpr-plan__content">
+                                    <div class="cpr-plan__actions">
+                                        <div class="cpr-plan__action"><a href="/schedule-a-demo/?ref=Enterprise"
+                                                class="p-btn-desktop p-btn section1">
+                                                Talk to sales
+                                            </a> 
+                                            <span class="adding">
+                                                +
+                                            </span>
+                                    </div>
                                 </div>
-                                <div class="desc-wrap">
+                                <div class="cpr-plan__footer">
                                     <div class="cpr-plan__desc">
-                                        includes <strong>INR 9.6 Crores</strong>/<span>yr</span> revenue
-                                        <strong>0.75%</strong> of
-                                        <span data-toggle="tooltip" title="" class="cpr-plan__tooltip"
-                                            data-original-title="Overages are charged on annual revenue that exceeds the given limit of 9.6Cr. For INR 1L processed after exceeding the annual limit of USD 9.6Cr, the overage is calculated as 0.75% of INR 1L = INR 750.">overage
-                                            revenue</span>
+                                        <div class="users user-empty"></div>
+                                        <div class="cpr-plan__highlight">
+                                            Everything in Scale
+                                            <span class="adding">
+                                                +
+                                            </span>
+                                        </div>
+                                        <ul class="cpr-plan__list">
+                                            <li>Contract terms</li>
+                                            <li>Account hierarchy</li>
+                                            <li>Quotes</li>
+                                            <li>Chargeback automation</li>
+                                            <li>Dedicated CSM</li>
+                                        </ul>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="cpr-plan__content">
-                                <div class="cpr-plan__actions">
-                                    <div class="cpr-plan__action"><a href="/schedule-a-demo/?ref=Scale"
-                                            class="p-btn-desktop p-btn section1">
-                                            Schedule a demo
-                                        </a></div>
-                                </div>
-                            </div>
-                            <div class="cpr-plan__footer">
-                                <div class="cpr-plan__desc">
-                                    <div class="users">25 Users</div>
-                                    <div class="cpr-plan__highlight">
-                                        Everything in Rise
-                                        <span class="adding">
-                                            +
-                                        </span>
-                                    </div>
-                                    <ul class="cpr-plan__list">
-                                        <li>User role management</li>
-                                        <li>Multiple payment methods</li>
-                                        <li>Advance invoices</li>
-                                        <li>Multiple tax profiles</li>
-                                        <li>Smart dunning</li>
-                                        <li>Priority phone support</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cpr-table__col cpr-table_final">
-                        <div class="cpr-plan">
-                            <div class="cpr-plan__header">
-                                <div class="cpr-plan__name">Enterprise</div>
-                                <div class="cpr-plan__descs">
-                                    <span class="adding">
-                                        +
-                                    </span>
-                                    For large businesses looking for enterprise-class compliance while diversifying
-                                    revenue streams.
-                                </div>
-                                <div class="cpr-plan__price">
-                                    <div class="cpr-plan__div">
-                                        <h6 class="no-data"></h6>
-                                        <h4 class="rm-after">Custom</h4>
-                                    </div>
-                                </div>
-                                <div class="cpr-plan__toggle no-data"></div>
-                                <div class="desc-wrap">
-                                    <div class="cpr-plan__desc cbr-mt-md">
-                                        Get a quote tailored to your requirements.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cpr-plan__content">
-                                <div class="cpr-plan__actions">
-                                    <div class="cpr-plan__action"><a href="/schedule-a-demo/?ref=Enterprise"
-                                            class="p-btn-desktop p-btn section1">
-                                            Talk to sales
-                                        </a> 
-                                        <span class="adding">
-                                            +
-                                        </span>
-                                </div>
-                            </div>
-                            <div class="cpr-plan__footer">
-                                <div class="cpr-plan__desc">
-                                    <div class="users user-empty"></div>
-                                    <div class="cpr-plan__highlight">
-                                        Everything in Scale
-                                        <span class="adding">
-                                            +
-                                        </span>
-                                    </div>
-                                    <ul class="cpr-plan__list">
-                                        <li>Contract terms</li>
-                                        <li>Account hierarchy</li>
-                                        <li>Quotes</li>
-                                        <li>Chargeback automation</li>
-                                        <li>Dedicated CSM</li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -663,7 +560,41 @@
                 </div>
             </div>
         </div>
+        <div class="p-actions text-center">
+            <div class="container">
+                <div class="row">
+                <div class="p-bottom">
+                    <div class="compare">
+                    <a href="" data-toggle="modal" data-target="#pricingTable" class="show-item">
+                        <span class="show-desktop">See how our plans compare -></span>
+                        <span class="show-mobile">See all features</span>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
+    <div class="p-startups " vwo-element-id="1660118788742" vwo-op-1660118791876="">
+        <div class="container2">
+            <div class="row">
+                <div class="s-parent">
+                    <div class="s-i-parent">
+                        <div class="s-left">
+                            <img src="https://webstatic.chargebee.com/assets/web/516/images/pricings/plan.svg" alt="" class="img-responsive">
+                        </div>
+                         <div class="s-right">
+                            <div class="s-top">Early Stage Startup? Get Started for Free!</div> 
+                            <div class="s-middle"> Are you a newly launched business making less than USD 100K in revenue? Chargebee's
+                                 <b>Launch Plan</b> is meant for you. Focus on building and launching your product, while we take care of your billing.
+                                 </div> 
+                                 <div class="s-bottom">
+                                    <a href="/launch/?ref=pricingPage">Explore</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 </body>
-
 </html>
+<script src="pricing.js"></script>
