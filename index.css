@@ -13,7 +13,7 @@ body {
     height: 450px;
     margin: auto;
     margin-top: 30px;
-    background-color: black;
+    background-color: white;
 }
 
 .carousel-cell {
@@ -31,7 +31,7 @@ body {
 .content {
     width: 60%;
     height: 100%;
-    color: #fff;
+    color: #333;
 }
 
 .content_image {
@@ -53,7 +53,7 @@ body {
     margin-left: 10px;
 }
 
-button {
+.de {
     padding: 8px;
     border-radius: 30px;
     border: none;
@@ -75,19 +75,19 @@ a {
 }
 
 .per_name {
-    color: #fff;
+    color: #333;
     margin-top: 130px;
     margin-left: 20px;
 }
 
 .per_post {
-    color: #fff;
+    color: #333;
     margin-top: 20px;
     margin-left: 20px;
 }
 
 .marquee {
-    width: 80vw;
+    width: 70vw;
     height: 60px;
     margin: auto;
     margin-top: 100px;
@@ -140,4 +140,401 @@ a {
     justify-content: center;
     align-items: center;
     white-space: nowrap;
+}
+
+#billing{
+    width: 90%;
+    margin: auto;
+    height: 500px;
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#build{
+    margin-top: 30px;
+}
+
+#first{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#second{
+    width: 60%;
+}
+
+.got{
+    display: flex;
+    justify-content: space-between;
+}
+
+.box{
+    width: 40%;
+    text-align: left;
+    margin-top: 60px;
+    transition: 1s;
+}
+
+.box:hover{
+    transform: scale(1.2);
+}
+
+.learn{
+    border: none;
+    background-color: none;
+    color: blue;
+    background-color: #fff;
+    outline: none;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+#path_icon{
+    width: 50px;
+    height: 50px;
+    color: blue;
+}
+
+.t1{
+    margin-top: 10px;
+}
+
+.p1{
+    margin-top: 10px;
+}
+
+#streamline{
+    width: 80%;
+    margin: auto;
+    margin-top: 100px;
+    text-align: center;
+}
+
+#theory_revenue{
+    width: 38%;
+    margin: auto;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#topics{
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.2rem;
+}
+
+.change:hover{
+    color: royalblue;
+}
+
+hr{
+    height: 1px;
+    color: black;
+}
+
+#automate{
+    width: 50%;
+    margin: auto;
+    margin-top: 150px;
+    display: flex;
+    position: relative;
+}
+
+#align{
+    width: 50%;
+    margin: auto;
+    margin-top: 200px;
+    display: flex;
+    position: relative;
+}
+
+.order{
+    width: 30%;
+    margin-left: 20px;
+}
+
+.order_h{
+    margin-top: 20px;
+}
+
+.order_p{
+    margin-top: 10px;
+}
+
+.li, .link{
+    margin-top: 10px;
+}
+
+.order_btn{
+    margin-top: 20px;
+}
+
+.order_btn{
+    border: none;
+    font-size: 20px;
+    background-color: #fff;
+    color: blue;
+}
+
+.temp1{
+    width: 200px;
+    height: 350px;
+    position:absolute;
+    top: 30px;
+    left: 350px;
+}
+
+.temp2{
+    width: 200px;
+    height: 200px;
+    position:absolute;
+    top: 200px;
+    left: 540px;
+}
+
+.temp3{
+    width: 200px;
+    height: 150px;
+    position: absolute;
+    top: 30px;
+    left: 580px;
+}
+
+.em1{
+    width: 300px;
+    height: 200px;
+    position:absolute;
+    top: 200px;
+    left: 350px;
+}
+
+.em2{
+    width: 260px;
+    height: 200px;
+    position:absolute;
+    top: 30px;
+    left: 580px;
+}
+
+#promise{
+    width: 50%;
+    margin: auto;
+    margin-top: 200px;
+    display: flex;
+    position: relative;
+}
+
+#secure{
+    width: 400px;
+    height: 400px;
+    margin-left: 40px;
+}
+
+#end_above{
+    width: 100%;
+    height: 320px;
+    
+    margin-top: 150px;
+    background-color: #4B0082;
+    position: relative;
+}
+
+#k3{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    margin-top: 20px;
+    margin-left: 15px;
+}
+
+#k1{
+    width: 60%;
+}
+
+#big{
+    font-size: 3rem;
+    color: #fff;
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+#k2{
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+#email{
+    display: block;
+    padding: 10px;
+    border-radius: 20px;
+    text-align: left;
+    width: 50%;
+    margin-left: 40px;
+}
+
+#btn{
+    padding: 10px;
+    border-radius: 20px;
+}
+
+#alert{
+    margin-top: 20px;
+    margin-left: 40px;
+    color: red;
+    font-size: 1.3rem;
+}
+
+#k4{
+    width: 300px;
+    height: 400px;
+    border: 1px solid #333;
+    background-color: #fff;
+    border-radius: 20px;
+    position: absolute;
+    top: -100px;
+    left: 900px;
+}
+
+#num1{
+    margin-top: 20px;
+    font-size: 1.2rem;
+    margin-left: 10px;
+}
+
+#num2{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+#num3{
+    margin-left: 10px;
+}
+
+@media screen and (min-width: 500px) and (max-width: 800px){
+    .carousel{
+        width: 100%;
+    }
+
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .content_image{
+        width: 100%;
+        order: -1;
+    }
+
+    .front{
+        width: 100%;
+        height: 300px;
+    }
+
+    .content{
+        order: 1;
+        width: 100%;
+    }
+
+    .marquee{
+        margin-top: 380px;
+        width: 80%;
+    }
+
+    #streamline{
+        width: 100%;
+        margin-top: 200px;
+        margin-left: 20px;
+        text-align: left;
+    }
+
+    #automate{
+        width: 85%;
+    }
+
+    .order{
+        width: 40%;
+    }
+    
+    .temp1{
+        left: 300px;
+    }
+
+    .temp2{
+        left: 460px;
+    }
+
+    .temp3{
+        width: 150px;
+        left: 510px;
+    }
+
+    #align{
+        width: 85%;
+    }
+
+    .em1{
+        width: 220px;
+        left: 300px;
+    }
+
+    .em2{
+        width: 220px;
+        left: 460px;
+    }
+
+    #promise{
+        width: 85%;
+    }
+
+    #theory_revenue{
+        width: 70%;
+        margin: 0;
+        text-align: left;
+    }
+
+    #end_above{
+        height: 750px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #k1{
+        width: 100%;
+        margin-top: 450px;
+    }
+
+    #k4{
+        order: 2;
+        top: 40px;
+        left: 250px;
+    }
+    
+    #big{
+        font-size: 2rem;
+        margin: 0;
+        text-align: center;
+    }
+
+    #k2{
+        flex-direction: column;
+    }
+
+    #email{
+        margin-left: 200px;
+    }
+
+    #btn{
+        display: block;
+        width: 20%;
+        margin: auto;
+    }
+
+    #alert{
+        text-align: center;
+    }
 }

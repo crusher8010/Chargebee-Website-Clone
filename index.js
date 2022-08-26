@@ -1,13 +1,9 @@
-// let top_causer = document.querySelector('.product-container').childElementCount;
-// let prebtn = document.getElementById('pre-btn');
-// let nxtbtn = document.getElementById('nxt-btn');
-// let slide = document.querySelectorAll('.slide');
+let hamburger = document.querySelector('.hamburger');
+let right = document.getElementById('leftt');
+let left = document.getElementById('rightt');
 
-// let temp = 0;
-// prebtn.addEventListener('click', () => {
-//     temp++;
-//     if(temp == top_causer){
-//         temp = 0;
-//     }
-//     slide++;
-// })
+hamburger.addEventListener('click', () =>{
+    hamburger.classList.toggle('active');
+    right.classList.toggle('active');
+    left.classList.toggle('active');
+})
