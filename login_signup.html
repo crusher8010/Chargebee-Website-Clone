@@ -5,17 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Login-ChargeBee</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="login_signup.css">
 </head>
-<body>
+<body onload="signup()">
+    <!--------------------------------------------------------------NAVBAR STARTS HERE----------------------------------------------------------->
+    <!-------------------------------------------------------------------------------------------------------------------------------------------->
+
     <div id="navbar">                      <!-- navbar div container-->
 
-        <div id="left">                    <!-- navbar left side portion contianing navigation links to various pages -->
+        <div id="leftt">                    <!-- navbar left side portion contianing navigation links to various pages -->
 
+<!-----------------------------------"Chargebee"----------------------------------------->
+           <a href="" style="text-decoration: none; color: black;"> <h1 id="siteName" style="font-family: 'Dancing Script', cursive;">Chargebee</h1> </a>       <!-- 1st item in left side-->
 
-            <h1 id="siteName" style="font-family: cursive;">Chargebee</h1>      <!-- 1st item in left side-->
-
-
+<!-------------------------"Products" dropdown menu--------------------------------------->
            
             <div class="container">               <!--contianer div for dropdown menu-->
 
@@ -84,9 +92,11 @@
                     </div>
 
             </div>
-        
+<!-----------------------------------"Pricing"-------------------------------->
+
             <p> <a href="" style="text-decoration: none; color: black;">Pricing</a> </p>
 
+<!---------------------------"Solutions" dropdown menu-------------------------->
 
             <div class="container">               <!--contianer div for dropdown menu-->
 
@@ -159,7 +169,9 @@
             </div>
             
             <p> <a href="" style="text-decoration: none; color: black;">Customers</a> </p>
-            
+
+<!-----------------------------"Resources" dropdown menu---------------------->
+
             <div class="container">               <!--contianer div for dropdown menu-->
 
                 <p class="head" style="font-weight:bold;">Resources</p>          <!-- 4th item in left side-->
@@ -223,15 +235,18 @@
                     </div>
 
             </div>
-            
+<!-----------------------------------"Partners"----------------------->
+
             <p> <a href="" style="text-decoration: none; color: black;">Partners</a> </p>
         </div>
 
-        <div id="right">
+<!----------------------------------------------------------------------------------------------->
+
+        <div id="rightt">            <!--right-most div of navbar containing change language, login page link and "get demo" button-->
 
             <select id="changeLang"> 
-                <option value="">English</option>
-                <option value="">Deutsch</option>
+                <option value="english">English</option>
+                <option value="deutsch">Deutsch</option>
             </select>
 
             <p> <a href="" style="text-decoration: none; color: black; font-weight: bold;">Login  </a> </p>
@@ -241,16 +256,56 @@
 
         </div>
     </div>
-
-    <!-- <div>
-        <h1>welcome to chargebee</h1>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum nostrum, incidunt error distinctio sunt aspernatur vitae a quibusdam illo dolorem, aliquid saepe et sequi corrupti! Culpa obcaecati rem necessitatibus vel?</p>
-    </div> -->
+<!----------------------------------------------------------------------------------NAVBAR ENDS HERE---------------------------------------------------->
+<!------------------------------------------------------------------------------------------------------------------------------------------------------>
 
 <!----------------------------------------------------------------------------LOG-IN/SIGN-UP----------------------------------------------------------------->
 
     <div id="content-box">
 
+        <div id="left" style="display: block;">
+        
+            <img src="https://cyclr.com/wp-content/uploads/2018/10/chargebee-logo.png" alt="" id="logo">
+
+                <p style="color: grey;" class="heading">ANNOUNCING SUMMER 2022 PRODUCT RELEASE</p>
+            
+            
+
+                <H4>Monetize Effectively to Tackle Market Turbulence</H4>
+            
+
+            <div id="desc">
+                <div id="img">
+
+                    <img src="https://pbs.twimg.com/media/FYwF7RLacAAj4uO?format=jpg&name=large" alt="">
+                </div>
+
+                <div id="para">
+
+                    <p>Chargebee's summer 2022 Release brings you better monetization capabilities that help you seize revenue opportunities by improving customer lifetime value, managing cashflows better, and achieving topline growth.</p>
+                    <a href="" style="text-decoration: none; color: blue;">See what's new across our products -> </a>
+                </div>
+            </div>
+            
+        </div>
+
+        <div id="right" style="display: block;">
+
+            <div id="ls_bar">
+                <div id="switch"> <p id="switchName">Signup</p> </div>
+                <div id="signup" onclick="signup()"> <p>SignUp</p> </div>
+                <div id="login" onclick="login()"> <p>Login</p> </div>
+            </div>
+
+            <div id="inputs_container">
+
+
+            </div>
+        
+        </div>
+
     </div>
 </body>
 </html>
+
+<script src="login_signup.js"></script>

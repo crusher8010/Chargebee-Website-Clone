@@ -1,23 +1,30 @@
+/*------------------------------------------------------body CSS -------------------------------------------------------------------------------*/
+
+body{
+    background-color: whitesmoke;
+}
+
+
 /* ------------------------------------------------------Navbar CSS------------------------------------------------ */
 
 #navbar{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 100%;
     height: 50px;
     display: flex;
     justify-content: space-between;
 }
-#left{
-    border: 1px solid red;
+#leftt{
+    /* border: 1px solid red; */
     width: 40%;
     display: flex;
     justify-content: space-around;
 }
-#left>p{
+#leftt>p{
     font-weight: bold;
 }
-#right{
-    border: 1px solid red;
+#rightt{
+    /* border: 1px solid red; */
     width: 20%; 
     display: flex;
     justify-content: space-around;
@@ -30,9 +37,10 @@
 }
 .dropdown{
     display: none;
-    margin-left: -200px;
+    margin-left: -168px;
     position: absolute;
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     width: 99%;
     height: auto;
     background-color: whitesmoke;
@@ -57,10 +65,10 @@
     cursor: auto;
 }
 #second_dropdown{
-    margin-left: -322px;
+    margin-left: -295px;
 }
 #third_dropdown{
-    margin-left: -473px;
+    margin-left: -460px;
 
 }
 
@@ -84,14 +92,15 @@
 /* ----------NAVBAR [UNDER "RESOURCES" DROPDOWN MENU]------------------------ */
 
 #dropdown_left{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: auto;
     width: 70%;
     display: grid;
     grid-template-columns: repeat(3,1fr);
 }
 #dropdown_right{
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
+    border-radius: 20px;
     width: 30%;
     height: 200px;
     margin-top: 350px;
@@ -103,13 +112,14 @@
     right: 50px;;
 }
 .box{
-    border: 1px solid green;
+    /* border: 1px solid green; */
     height: 200px;
     padding-left: 20px;
     padding-right: 20px;
 }
 #book{
     height: 50px;
+    border-radius: 10px;
     position: relative;
     top: 320px;
     left: 80px;
@@ -119,27 +129,201 @@
 /* --------------------------------------------------------------------------------------------------------------------------------------- */
 /*--------------------------------------------------------------------LOGIN & SIGNUP--------------------------------------------------------*/
 
+
+
 #content-box{
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: white;
     width: 50%;
-    height: 400px;
+    height: 430px;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 90px;
+    display: flex;
+    padding: 20px;
 }
-/* #content{
-  display: none;
-  position: absolute;
-  background-color: whitesmoke;
-  width: 1000px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+
+/*--------------left div--------------------------*/
+#left{
+    /* border: 1px solid red; */
+    width: 50%;
+    padding-left: 10px;
+    padding-right: 10px;
 }
-#content p{
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+
+#desc{
+    display: flex;
+    /* margin-top: 80px; */
 }
-#content p:hover {background-color: #ddd; cursor: pointer;}
-#dropdown:hover #content {display: block;}
-#dropdown:hover #head { cursor: pointer;} */
+#img{
+    /* border: 1px solid green;    */
+    width: 50%;
+    height: 250px;
+}
+#para{
+    /* border: 1px solid orangered; */
+    width: 50%;
+    height: 250px;
+}
+#img>img{
+    width: 17%;
+    position: absolute;
+    top: 347px;
+    left: 290px;
+    clip: rect(0, 2000px, 200px, 110px);
+}
+.heading{
+    margin-top: 25px;  
+}
+#logo{
+    width: 12%;
+    border-radius: 5px;
+}
+
+/*----------------------------right div-------------------------*/
+#right{
+    /* border: 1px solid red; */
+    width: 50%;
+}
+#ls_bar{
+    /* border: 1px solid black; */
+    width: 100%;
+    height: 50px;
+    border-radius: 50px;
+    display: flex;
+    background-color: blueviolet;
+}
+#signup{
+    /* border: 1px solid black; */
+    width: 50%;
+    border-radius: 50px 50px 50px 50px;
+    text-align: center;
+    cursor: pointer;
+}
+#login{
+    /* border: 1px solid  black; */
+    width: 50%;
+    border-radius: 50px 50px 50px 50px;
+    text-align: center;
+    cursor: pointer;
+}
+#ls_bar p{
+    font-weight: bold;
+    color: white;
+}
+#switch{
+    /* border: 1px solid black; */
+    width: 185px;
+    height: 48px;
+    margin-top: 1px;
+    /* margin-left: 0%; */
+    border-radius: 50px 50px 50px 50px;
+    position: absolute;
+    
+    background-color: white;
+   
+}
+#switch>p{
+    text-align: center;
+    color: black;
+}
+#inputs_container{
+    /* border: 1px solid black; */
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+    height: auto;
+    text-align: center;
+}
+#input1{
+    margin-top: 25px;
+    width: 250px;
+    height: 30px;
+    border-radius: 5px;
+    border: 2px solid grey;
+    outline: none;
+    font-size: 15px;
+}
+#input2{
+    /* margin-top: 25px; */
+    width: 250px;
+    height: 30px;
+    border-radius: 5px;
+    border: 2px solid grey;
+    outline: none;
+    font-size: 15px;
+}
+#input3{
+    /* margin-top: 25px; */
+    width: 250px;
+    height: 30px;
+    border-radius: 5px;
+    border: 2px solid grey;
+    outline: none;
+    font-size: 15px;
+}   
+#input4{
+    /* margin-top: 25px; */
+    width: 250px;
+    height: 30px;
+    border-radius: 5px;
+    border: 2px solid grey;
+    outline: none;
+    font-size: 15px;
+ 
+}
+#input5{
+    /* margin-top: 25px; */
+    width: 250px;
+    height: 30px;
+    border-radius: 5px;
+    border: 2px solid grey;
+    outline: none;
+    font-size: 15px;
+
+}
+#btn{
+    /* margin-top: 25px; */
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid orange;
+    background-color: orange;
+    cursor: pointer;
+}
+#p1{
+    /* border: 1px solid black; */
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 250px;
+}
+#p2{
+    /* border: 1px solid black; */
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 250px;
+}
+#p3{
+    /* border: 1px solid black; */
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 250px;
+}
+#p4{
+    /* border: 1px solid black; */
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 250px;
+}
+#p5{
+    /* border: 1px solid black; */
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: 250px;
+}
