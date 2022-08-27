@@ -1,14 +1,25 @@
+let hamburger = document.querySelector('.hamburger');
+let right = document.getElementById('leftt');
+let left = document.getElementById('rightt');
+
+hamburger.addEventListener('click', () =>{
+    hamburger.classList.toggle('active');
+    right.classList.toggle('active');
+    left.classList.toggle('active');
+})
+//----------------------------------------------------------------------------
+
 /*-------------------login/signup switch-------------*/
 let switchh =  document.getElementById("switch");
 let p = document.getElementById("switchName");
-let emptyArr = [];
-localStorage.setItem("userData", JSON.stringify(emptyArr));
+
 
 /*-------------------signup function----------------------------*/
 let signup = () => {                                       
-    // console.log("clicked");
+    console.log("clicked");
     
-    
+    let hide = document.getElementById("showPass");
+    hide.innerText = "Show";
     switchh.style.transform =  "translateX(1%)";
     switchh.style.transition =  "all 0.5s ease-in-out";
     p.innerText = "SignUp";
@@ -22,6 +33,7 @@ let signup = () => {
     let br3 = document.createElement("br");
     let br4 = document.createElement("br");
 
+    
     let input1 = document.createElement("input");
     input1.placeholder = "Enter Name/last name optional";
     input1.id = "input1"; 
@@ -72,7 +84,7 @@ let signup = () => {
     let btn =  document.createElement("button");
     btn.innerText = "SignUp";
     btn.id = "btn";
-    btn.addEventListener("click", function(){ signup_data(input1.value,input2.value,input3.value,input4.value,input5.value)});
+    btn.addEventListener("click", function(){ signup_data(p1,p2,p3,p4,p5,input1,input2,input3,input4,input5,input1.value,input2.value,input3.value,input4.value,input5.value)});
     // btn.style.marginTop = "20px";
 
     inputs_container.append(input1,p1,br,input2,p2,br1,input3,p3,br2,input4,p4,br3,input5,p5,br4,btn);
@@ -81,7 +93,9 @@ let signup = () => {
 
 /*-------------------login function----------------------------*/
 let login = () => {
-    // console.log("clicked");
+    console.log("clicked");
+    let hide = document.getElementById("showPass");
+    hide.innerText = "";
    
     switchh.style.transform =  "translateX(99%)";
     switchh.style.transition =  "all 0.5s ease-in-out";
@@ -93,35 +107,107 @@ let login = () => {
     let br = document.createElement("br");
     let br1 = document.createElement("br");
     let input1 = document.createElement("input");
-    input1.placeholder = "Enter Username/Email";
+    input1.placeholder = "Enter Username";
     input1.id = "input1";
+    input1.oninput = function(){checkLoginUsername(input1,input1.value)}
+    let p1 = document.createElement("p");
+    p1.id = "p1";
+    p1.style.fontSize = "13px";
     // input1.style.marginTop = "20px";
     
 
     let input2 = document.createElement("input");
+    input2.type = "password"
     input2.placeholder = "Enter Password";
     input2.id = "input2";
+    input2.oninput = function(){checkLoginPass(input2,input1.value,input2.value)}
+    let p2 = document.createElement("p");
+    p2.id = "p2";
+    p2.style.fontSize = "13px";
+
     // input2.style.marginTop = "20px";
 
     let btn =  document.createElement("button");
     btn.innerText = "Login";
     btn.id = "btn";
+    btn.addEventListener("click", function(){ login_data(p1,p2,input1,input2,input1.value)});
     // btn.style.marginTop = "20px";
 
-    inputs_container.append(input1,br,input2,br1,btn);
+    inputs_container.append(input1,p1,br,input2,p2,br1,btn);
 }
-
 /*------------------------------------getting signup data-----------------------------------------------------*/
 
-let signup_data = (name,email,username,mobile,password) => {
+let signup_data = (p1,p2,p3,p4,p5,input1,input2,input3,input4,input5,name,email,username,mobile,password) => {
     console.log("inside")
     // console.log(name,email,username,mobile,password)
+    let detailsArr = JSON.parse(localStorage.getItem("userData")) || [];
+    console.log(detailsArr)
+    let userdetails = {
+        name,
+        email,
+        username,
+        mobile,
+        password
+    };
+    detailsArr.push(userdetails);
+    if(input1.style.borderColor == "green" && input2.style.borderColor == "green" && input3.style.borderColor == "green" && input4.style.borderColor == "green" && input5.style.borderColor == "green"){
+
+        localStorage.setItem("userData", JSON.stringify(detailsArr));
+        alert("signup successful");
+        input1.value = "";
+        input2.value = "";
+        input3.value = "";
+        input4.value = "";
+        input5.value = "";
+        input1.style.borderColor = "grey";
+        input2.style.borderColor = "grey";
+        input3.style.borderColor = "grey";
+        input4.style.borderColor = "grey";
+        input5.style.borderColor = "grey";
+        p1.innerText = "";
+        p2.innerText = "";
+        p3.innerText = "";
+        p4.innerText = "";
+        p5.innerText = "";
+        return;
+    }else{
+        alert("Pls fill Correct details");
+        
+    }    
+}
+//-----------------------------------------------------------------------------------
+//---------------------------------login function---------------------------------
+
+let login_data = (p1,p2,input1,input2,username) => {
+    console.log("inside");
+
+    if(input1.style.borderColor == "green" && input2.style.borderColor == "green"){
+
+        
+        alert("Login successful");
+
+        input1.value = "";
+        input2.value = "";
+       
+        input1.style.borderColor = "grey";
+        input2.style.borderColor = "grey";
+       
+        p1.innerText = "";
+        p2.innerText = "";
+        localStorage.setItem("loggedInUser",JSON.stringify(username));
+        // window.location.href = "index.html"
+        return;
+    }else{
+        alert("Pls fill Correct details");
+        
+    }    
 
     
 }
+
 //----------------------------------check Name input----------------------------
 let checkName = (input,n) => {
-    console.log(n);
+    // console.log(n);
 
     //always more than 2 letters
     //can have 1 space
@@ -139,14 +225,20 @@ let checkName = (input,n) => {
             p.innerText = "";
             p.style.color = "red";
             p.innerText = `Wow!! ${i+1} letter name is not acceptable`;
+            input.style.borderColor = "red";
+            
           }else if(n.length > 2  &&  n.length < 30){
             p.innerText = "";
             p.style.color = "green";
-            p.innerText = `Hmm, "${n}" is a good name`
+            p.innerText = `Hmm, "${n}" is a good name`;
+            input.style.borderColor = "green";
+        
           }else{
             p.innerText = "";
             p.style.color = "red";
-            p.innerText = "Hey, Name cannot Exceed more than 30 characters !!"
+            p.innerText = "Hey, Name cannot Exceed more than 30 characters !!";
+            input.style.borderColor = "red";
+        
           }
           
           strCount++;
@@ -162,9 +254,10 @@ let checkName = (input,n) => {
                 p.innerText = "";
                 p.style.color = "red";
                 p.innerText = "maximum 1 space ' ' allowed";
+                input.style.borderColor = "red";
                 input.setAttribute("readonly",true);
-                setTimeout(function(){ input.removeAttribute("readonly"); input.value = ""; p.innerText = "";},4000);
-                return; 
+                setTimeout(function(){ input.removeAttribute("readonly"); input.value = ""; p.innerText = ""; input.style.borderColor = "grey";},4000);
+                
             }
             
         //    console.log("no of spaces:", spaceCount);
@@ -179,7 +272,9 @@ let checkName = (input,n) => {
 
     if(input.value == ""){
         p.innerText = "";
+        input.style.borderColor = "grey";
     }
+    input.onblur = function(){p.innerText = "";};
 }
 
 //----------------------------------check Email input----------------------------
@@ -189,7 +284,7 @@ let checkEmail = (input,e) => {
     
     // clearTimeout(id);
     // clearTimeout(id2);
-    console.log(e);
+    // console.log(e);
     let p =  document.getElementById("p2");
 
     let spaceCount = 0;
@@ -206,16 +301,22 @@ let checkEmail = (input,e) => {
                     p.innerText = "";
                     p.style.color = "red";
                     p.innerText = "Email cannot be less than 6 characters";
+                    input.style.borderColor = "red";
+                    
                 }else if(e.length > 40 ){
                     p.innerText = "";
                     p.style.color = "red";
                     p.innerText = "Email cannot be more than 40 characters";
-                    input.disabled = true;
-                    setTimeout(function(){ input.disabled = false, input.value = ""; p.innerText = "";},4000)
+                    input.style.borderColor = "red";
+                    input.setAttribute("readonly",true);
+                    setTimeout(function(){ input.removeAttribute("readonly"); input.value = ""; p.innerText = "";},4000);
+                    
                 }else{
                     p.innerText = "";
                     p.style.color = "green";
                     p.innerText = "So far, Email looks good !!";
+                    input.style.borderColor = "green";
+                    // return;
                 }
                 
                 if(e[i] == "."){
@@ -225,6 +326,7 @@ let checkEmail = (input,e) => {
                         p.innerText = "";
                         p.style.color = "red";
                         p.innerText = "cannot have 2 periods '.' consecutively";
+                        input.style.borderColor = "red";
                         input.setAttribute("readonly",true);
                         setTimeout(function(){ input.removeAttribute("readonly"); input.value = ""; p.innerText = "";},4000);
                         return; 
@@ -239,6 +341,7 @@ let checkEmail = (input,e) => {
                         p.innerText = "";
                         p.style.color = "red";
                         p.innerText = "cannot have 2 '@' consecutively";
+                        input.style.borderColor = "red";
                         input.setAttribute("readonly",true);
                         setTimeout(function(){ input.removeAttribute("readonly"); input.value = ""; p.innerText = "";},4000);
                         return; 
@@ -255,6 +358,7 @@ let checkEmail = (input,e) => {
                 p.innerText = "";
                 p.style.color = "red";
                 p.innerText = "UPPER-CASE not allowed";
+                input.style.borderColor = "red";
                 input.setAttribute("readonly",true);
                 setTimeout(function(){ input.removeAttribute("readonly"); input.value = ""; p.innerText = "";},4000);
                 return; 
@@ -262,6 +366,7 @@ let checkEmail = (input,e) => {
                 p.innerText = "";
                 p.style.color = "red";
                 p.innerText = "only '@' and '.' allowed !!";
+                input.style.borderColor = "red";
                 input.setAttribute("readonly",true);
                 setTimeout(function(){ input.removeAttribute("readonly"); input.value = ""; p.innerText = "";},4000);
                 return;
@@ -269,6 +374,9 @@ let checkEmail = (input,e) => {
     }
 // console.log("the man was very strong")
     input.onblur = function(){
+
+        
+        p.innerText = "";
         
         if(periodCount == 0 || attheratCount == 0){
 
@@ -277,10 +385,11 @@ let checkEmail = (input,e) => {
                 p.innerText = "";
                 p.style.color = "red";
                 p.innerText = "Invalid Email !!";
+                input.style.borderColor = "red";
                 alert("missing '@' or '.' or both, invalid Email...");
-                input.disabled = true;
-                setTimeout(function(){ input.disabled = false, input.value = ""; p.innerText = "";},4000)
-        
+                input.setAttribute("readonly",true);
+                setTimeout(function(){ input.removeAttribute("readonly"); input.value = ""; p.innerText = "";},4000);
+                return;
             },4000)
         }
         
@@ -302,22 +411,29 @@ let checkEmail = (input,e) => {
                     p.innerText = "";
                     p.style.color = "red";
                     p.innerText = "Invalid Email !!";
-                    input.disabled = true;
-                setTimeout(function(){ input.disabled = false, input.value = ""; p.innerText = "";},4000);
+                    input.style.borderColor = "red";
+                    input.setAttribute("readonly",true);
+                    setTimeout(function(){ input.removeAttribute("readonly"); input.value = ""; p.innerText = "";},4000);
+                    return;
                 }
             },4000);
-    }    
+    }  
+    
+    if(input.value == ""){
+        p.innerText = "";
+        input.style.borderColor = "grey";
+    }
 }
 
 //----------------------------------check UserName input----------------------------
 
 let checkUsername = (input,u) => {
-    console.log(u)
+    // console.log(u)
 
     let periodCount = 0;
     let underscoreCount = 0;
     let p =  document.getElementById("p3");
-    let userinfo = JSON.parse(localStorage.getItem("userData"))
+    let userinfo = JSON.parse(localStorage.getItem("userData")) || [];
     for(let i=0; i<u.length; i++){
 
         if(u.charCodeAt(i) >= 97 && u.charCodeAt(i) <=122 || u.charCodeAt(i) >= 48 && u.charCodeAt(i) <= 57 || u[i] == "_" || u[i] == "." ){
@@ -326,12 +442,15 @@ let checkUsername = (input,u) => {
                     p.innerText = "";
                     p.style.color = "red";
                     p.innerText = "User-Name cannot be less than 6 characters";
+                    input.style.borderColor = "red";
+                    
                 }else if(u.length > 30 ){
                     p.innerText = "";
                     p.style.color = "red";
                     p.innerText = "User-Name cannot be more than 30 characters";
-                    input.disabled = true;
-                    setTimeout(function(){ input.disabled = false, input.value = ""; p.innerText = "";},4000)
+                    input.style.borderColor = "red";
+                    input.setAttribute("readonly",true);
+                    setTimeout(function(){ input.removeAttribute("readonly"); input.value = ""; p.innerText = ""; input.style.borderColor = "grey";},4000);
                     return;
                 }
                 // else{
@@ -340,19 +459,21 @@ let checkUsername = (input,u) => {
                 //     p.innerText = "So far, User-name looks good !!";
                 // }
                 
-                if(u[i] == "."){
+                else if(u[i] == "."){
                     
                     if(u[i-1] == "."){
 
                         p.innerText = "";
                         p.style.color = "red";
                         p.innerText = "cannot have 2 periods '.' consecutively";
-                        input.disabled = true;
-                        setTimeout(function(){ input.disabled = false, input.value = ""; p.innerText = "";},4000)
+                        input.style.borderColor = "red";
+                        input.setAttribute("readonly",true);
+                        setTimeout(function(){ input.removeAttribute("readonly"); input.value = ""; p.innerText = ""; input.style.borderColor = "grey";},4000);
                         return;
-                    }else{
-                        periodCount++;
                     }
+                    // else{
+                    //     periodCount++;
+                    // }
 
                 }else if(u[i] == "_"){
 
@@ -361,51 +482,78 @@ let checkUsername = (input,u) => {
                         p.innerText = "";
                         p.style.color = "red";
                         p.innerText = "cannot have 2 '_' consecutively";
-                        input.disabled = true;
-                        setTimeout(function(){ input.disabled = false, input.value = ""; p.innerText = "";},4000)
+                        input.style.borderColor = "red";
+                        input.setAttribute("readonly",true);
+                        setTimeout(function(){ input.removeAttribute("readonly"); input.value = ""; p.innerText = ""; input.style.borderColor = "grey";},4000);
                         return;
                     } 
                 }
 
-                if(userinfo.length == 0){
+                else if(userinfo.length == 0){
                     p.innerText = "";
                     p.style.color = "green";
                     p.innerText = "User-Name available";
+                    input.style.borderColor = "green";
+                    // console.log("hello")
                 }else{
+                    let flag = false;
                     userinfo.forEach((el) => {
+                        
                         if(u == el.username){
 
+                            // console.log("boom")
+                            flag = true;
                             p.innerText = "";
+                            p.innerText = "User-Name already exist,Try something else";
                             p.style.color = "red";
-                            p.innerText = "cannot have 2 '_' consecutively";
-                            input.disabled = true;
-                            setTimeout(function(){ input.disabled = false, input.value = ""; p.innerText = "";},4000)
+                            input.style.borderColor = "red";
+                            input.setAttribute("readonly",true);
+                            setTimeout(function(){ input.removeAttribute("readonly"); input.value = ""; p.innerText = ""; input.style.borderColor = "grey";},4000);
+                            return;   
                         }
+                        
                     })
+                   
+                        // console.log("hi")
+                        if(flag === false){
+
+                            p.innerText = "";
+                            p.style.color = "green";
+                            p.innerText = "User-Name is Available";
+                            input.style.borderColor = "green";
+                        }
+                    
                 }
             }else if(u.charCodeAt(i) >= 65 && u.charCodeAt(i) <= 90){
 
                 p.innerText = "";
                 p.style.color = "red";
                 p.innerText = "UPPER-CASE not allowed";
+                input.style.borderColor = "red";
                 input.setAttribute("readonly",true);
-                setTimeout(function(){ input.removeAttribute("readonly"); input.value = ""; p.innerText = "";},4000);
+                setTimeout(function(){ input.removeAttribute("readonly"); input.value = ""; p.innerText = ""; input.style.borderColor = "grey";},4000);
                 return; 
             }else{
                 p.innerText = "";
                 p.style.color = "red";
-                p.innerText = "only '@','.' and '_' allowed !!";
+                p.innerText = "only '@', '.' and '_' allowed !!";
+                input.style.borderColor = "red";
                 input.setAttribute("readonly",true);
-                setTimeout(function(){ input.removeAttribute("readonly"); input.value = ""; p.innerText = "";},4000);
+                setTimeout(function(){ input.removeAttribute("readonly"); input.value = ""; p.innerText = ""; input.style.borderColor = "grey";},4000);
                 return;
             }
     }
+    if(input.value == ""){
+        p.innerText = "";
+        input.style.borderColor = "grey";
+    }
+    input.onblur = function(){p.innerText = "";};
 }
 
 //----------------------------------check Mobile number input----------------------------
 
 let checkMobile = (input,m) => {
-    console.log(m)
+    // console.log(m)
     let p =  document.getElementById("p4");
    if(m.length < 10){
       
@@ -413,27 +561,36 @@ let checkMobile = (input,m) => {
     p.innerText = "";
     p.style.color = "red";
     p.innerText = "needs to be 10 digits";
+    input.style.borderColor = "red";
+    
    }else if(m.length > 10){
 
     p.innerText = "";
     p.style.color = "red";
     p.innerText = "cannot exceed 10 digits";
+    input.style.borderColor = "red";
     input.setAttribute("readonly",true);
-    setTimeout(function(){ input.removeAttribute("readonly"); input.value = ""; p.innerText = "";},4000);
-    return;
+    setTimeout(function(){ input.removeAttribute("readonly"); input.value = ""; p.innerText = ""; input.style.borderColor = "grey";},4000);
+    
 
    }else if(m.length == 10){
     p.innerText = "";
     p.style.color = "green";
     p.innerText = "Great, its 10 digits now !!";
-
+    input.style.borderColor = "green";
+    
    }
+   if(input.value == ""){
+    p.innerText = "";
+    input.style.borderColor = "grey";
+   }
+    input.onblur = function(){p.innerText = "";};
 }
 
 //----------------------------------check Password input----------------------------
 
 let checkPass = (input,pass) => {
-    console.log(pass);
+    // console.log(pass);
     let p =  document.getElementById("p5");
     let lowerCaseCount = 0;
     let upperCaseCount = 0;
@@ -450,58 +607,93 @@ let checkPass = (input,pass) => {
                 p.innerText = "";
                 p.style.color = "red";
                 p.innerText = "cannot be less than 8 characters";
+                input.style.borderColor = "red";
             }else if(pass.length >= 8 && pass.length <= 20){
 
-                if(lowerCaseCount >= 8 && upperCaseCount == 0 && spclCharCount == 0 && numCount == 0){
+                if(lowerCaseCount >= 1 && upperCaseCount == 0 && spclCharCount == 0 && numCount == 0){
 
                     p.innerText = "";
                     p.style.color = "red";
-                    p.innerText = "Password Strength: 'WEAK'";
-                }else if(lowerCaseCount == 0 && upperCaseCount >= 8  && spclCharCount == 0 && numCount == 0){
-                    
+                    p.innerText = "Password Strength: 'WEAK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "red";
+                }else if(lowerCaseCount == 0 && upperCaseCount >= 1 && spclCharCount == 0 && numCount == 0){
+                
                     p.innerText = "";
-                    p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'WEAK'";
-                }else if(lowerCaseCount > 1 && upperCaseCount > 1  && spclCharCount == 0  && numCount == 0){
+                    p.style.color = "red";
+                    p.innerText = "Password Strength: 'WEAK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "red";
+                }else if(lowerCaseCount == 0 && upperCaseCount == 0 && spclCharCount >= 1 && numCount == 0){
+                
+                    p.innerText = "";
+                    p.style.color = "red";
+                    p.innerText = "Password Strength: 'WEAK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "red";
+                }else if(lowerCaseCount == 0 && upperCaseCount == 0 && spclCharCount == 0 && numCount >= 1){
+
+                    p.innerText = "";
+                    p.style.color = "red";
+                    p.innerText = "Password Strength: 'WEAK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "red";
+                }else if(lowerCaseCount >= 1 && upperCaseCount >= 1 && spclCharCount == 0 && numCount == 0){
 
                     p.innerText = "";
                     p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'OK'";
-                }else if(lowerCaseCount == 0 && upperCaseCount == 0  && spclCharCount >= 8  && numCount == 0){
+                    p.innerText = "Password Strength: 'OK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "orangered";
+                }else if(lowerCaseCount >= 1 && upperCaseCount >= 1 && spclCharCount >= 1 && numCount == 0){
 
                     p.innerText = "";
                     p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'FINE'";
-                }else if(lowerCaseCount == 0 && upperCaseCount == 0  && spclCharCount == 0  && numCount >= 8){
+                    p.innerText = "Password Strength: 'MODERATE',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "orangered";
+                }else if(lowerCaseCount >= 1 && upperCaseCount >= 1 && spclCharCount >= 1 && numCount >= 1){
 
                     p.innerText = "";
-                    p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'FINE'";
-                }else if(lowerCaseCount > 1 && upperCaseCount > 1  && spclCharCount > 1  && numCount == 0){
-
-                    p.innerText = "";
-                    p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'MODERATE'";
-                }else if(lowerCaseCount > 1 && upperCaseCount > 1  && spclCharCount == 0  && numCount > 1){
-
-                    p.innerText = "";
-                    p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'MODERATE'";
-                }else if(lowerCaseCount > 1 && upperCaseCount == 0  && spclCharCount > 1  && numCount > 1){
-
-                    p.innerText = "";
-                    p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'MODERATE'";
-                }else if(lowerCaseCount == 0 && upperCaseCount > 1  && spclCharCount > 1  && numCount > 1){
-
-                    p.innerText = "";
-                    p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'MODERATE'";
-                }else if(lowerCaseCount > 1 && upperCaseCount > 1  && spclCharCount > 1  && numCount > 1){
-
-                    p.innerText = "";
-                    p.style.color = "orangered";
+                    p.style.color = "green";
                     p.innerText = "Password Strength: 'STRONG'";
+                    input.style.borderColor = "green";
+                }else if(lowerCaseCount == 0 && upperCaseCount >= 1 && spclCharCount >= 1 && numCount == 0){
+
+                    p.innerText = "";
+                    p.style.color = "orangered";
+                    p.innerText = "Password Strength: 'OK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "orangered";
+                }else if(lowerCaseCount == 0 && upperCaseCount >= 1 && spclCharCount >= 1 && numCount >= 1){
+
+                    p.innerText = "";
+                    p.style.color = "oragnered";
+                    p.innerText = "Password Strength: 'MODERATE',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "oragnered";
+                }else if(lowerCaseCount == 0 && upperCaseCount == 0 && spclCharCount >= 1 && numCount >= 1){
+
+                    p.innerText = "";
+                    p.style.color = "orangered";
+                    p.innerText = "Password Strength: 'OK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "orangered";
+                }else if(lowerCaseCount >= 1 && upperCaseCount == 0 && spclCharCount == 0 && numCount >= 1){
+
+                    p.innerText = "";
+                    p.style.color = "orangered";
+                    p.innerText = "Password Strength: 'OK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "orangered";
+                }else if(lowerCaseCount == 0 && upperCaseCount >=1 && spclCharCount == 0 && numCount >= 1){
+
+                    p.innerText = "";
+                    p.style.color = "orangered";
+                    p.innerText = "Password Strength: 'OK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "orangered";
+                }else if(lowerCaseCount >= 1 && upperCaseCount == 0 && spclCharCount >= 1 && numCount == 0){
+
+                    p.innerText = "";
+                    p.style.color = "orangered";
+                    p.innerText = "Password Strength: 'OK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "oragnered";
+                }else if(lowerCaseCount >= 1 && upperCaseCount == 0 && spclCharCount >= 1 && numCount >= 1){
+
+                    p.innerText = "";
+                    p.style.color = "orangered";
+                    p.innerText = "Password Strength: 'MODERATE',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "oragnered";
                 }
             }else if(pass.length > 20 ){
                
@@ -527,56 +719,90 @@ let checkPass = (input,pass) => {
                 p.innerText = "cannot be less than 8 characters";
             }else if(pass.length >= 8 && pass.length <= 20){
 
-                if(lowerCaseCount >= 8 && upperCaseCount == 0 && spclCharCount == 0 && numCount == 0){
+                if(lowerCaseCount >= 1 && upperCaseCount == 0 && spclCharCount == 0 && numCount == 0){
 
                     p.innerText = "";
                     p.style.color = "red";
-                    p.innerText = "Password Strength: 'WEAK'";
-                }else if(lowerCaseCount == 0 && upperCaseCount >= 8  && spclCharCount == 0 && numCount == 0){
-                    
+                    p.innerText = "Password Strength: 'WEAK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "red";
+                }else if(lowerCaseCount == 0 && upperCaseCount >= 1 && spclCharCount == 0 && numCount == 0){
+                
                     p.innerText = "";
-                    p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'WEAK'";
-                }else if(lowerCaseCount > 1 && upperCaseCount > 1  && spclCharCount == 0  && numCount == 0){
+                    p.style.color = "red";
+                    p.innerText = "Password Strength: 'WEAK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "red";
+                }else if(lowerCaseCount == 0 && upperCaseCount == 0 && spclCharCount >= 1 && numCount == 0){
+                
+                    p.innerText = "";
+                    p.style.color = "red";
+                    p.innerText = "Password Strength: 'WEAK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "red";
+                }else if(lowerCaseCount == 0 && upperCaseCount == 0 && spclCharCount == 0 && numCount >= 1){
+
+                    p.innerText = "";
+                    p.style.color = "red";
+                    p.innerText = "Password Strength: 'WEAK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "red";
+                }else if(lowerCaseCount >= 1 && upperCaseCount >= 1 && spclCharCount == 0 && numCount == 0){
 
                     p.innerText = "";
                     p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'OK'";
-                }else if(lowerCaseCount == 0 && upperCaseCount == 0  && spclCharCount >= 8  && numCount == 0){
+                    p.innerText = "Password Strength: 'OK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "orangered";
+                }else if(lowerCaseCount >= 1 && upperCaseCount >= 1 && spclCharCount >= 1 && numCount == 0){
 
                     p.innerText = "";
                     p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'FINE'";
-                }else if(lowerCaseCount == 0 && upperCaseCount == 0  && spclCharCount == 0  && numCount >= 8){
+                    p.innerText = "Password Strength: 'MODERATE',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "orangered";
+                }else if(lowerCaseCount >= 1 && upperCaseCount >= 1 && spclCharCount >= 1 && numCount >= 1){
 
                     p.innerText = "";
-                    p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'FINE'";
-                }else if(lowerCaseCount > 1 && upperCaseCount > 1  && spclCharCount > 1  && numCount == 0){
-
-                    p.innerText = "";
-                    p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'MODERATE'";
-                }else if(lowerCaseCount > 1 && upperCaseCount > 1  && spclCharCount == 0  && numCount > 1){
-
-                    p.innerText = "";
-                    p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'MODERATE'";
-                }else if(lowerCaseCount > 1 && upperCaseCount == 0  && spclCharCount > 1  && numCount > 1){
-
-                    p.innerText = "";
-                    p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'MODERATE'";
-                }else if(lowerCaseCount == 0 && upperCaseCount > 1  && spclCharCount > 1  && numCount > 1){
-
-                    p.innerText = "";
-                    p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'MODERATE'";
-                }else if(lowerCaseCount > 1 && upperCaseCount > 1  && spclCharCount > 1  && numCount > 1){
-
-                    p.innerText = "";
-                    p.style.color = "orangered";
+                    p.style.color = "green";
                     p.innerText = "Password Strength: 'STRONG'";
+                    input.style.borderColor = "green";
+                }else if(lowerCaseCount == 0 && upperCaseCount >= 1 && spclCharCount >= 1 && numCount == 0){
+
+                    p.innerText = "";
+                    p.style.color = "orangered";
+                    p.innerText = "Password Strength: 'OK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "orangered";
+                }else if(lowerCaseCount == 0 && upperCaseCount >= 1 && spclCharCount >= 1 && numCount >= 1){
+
+                    p.innerText = "";
+                    p.style.color = "oragnered";
+                    p.innerText = "Password Strength: 'MODERATE',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "oragnered";
+                }else if(lowerCaseCount == 0 && upperCaseCount == 0 && spclCharCount >= 1 && numCount >= 1){
+
+                    p.innerText = "";
+                    p.style.color = "orangered";
+                    p.innerText = "Password Strength: 'OK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "orangered";
+                }else if(lowerCaseCount >= 1 && upperCaseCount == 0 && spclCharCount == 0 && numCount >= 1){
+
+                    p.innerText = "";
+                    p.style.color = "orangered";
+                    p.innerText = "Password Strength: 'OK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "orangered";
+                }else if(lowerCaseCount == 0 && upperCaseCount >=1 && spclCharCount == 0 && numCount >= 1){
+
+                    p.innerText = "";
+                    p.style.color = "orangered";
+                    p.innerText = "Password Strength: 'OK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "orangered";
+                }else if(lowerCaseCount >= 1 && upperCaseCount == 0 && spclCharCount >= 1 && numCount == 0){
+
+                    p.innerText = "";
+                    p.style.color = "orangered";
+                    p.innerText = "Password Strength: 'OK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "oragnered";
+                }else if(lowerCaseCount >= 1 && upperCaseCount == 0 && spclCharCount >= 1 && numCount >= 1){
+
+                    p.innerText = "";
+                    p.style.color = "orangered";
+                    p.innerText = "Password Strength: 'MODERATE',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "oragnered";
                 }
             }else if(pass.length > 20 ){
                
@@ -599,56 +825,90 @@ let checkPass = (input,pass) => {
                 p.innerText = "cannot be less than 8 characters";
             }else if(pass.length >= 8 && pass.length <= 20){
 
-                if(lowerCaseCount >= 8 && upperCaseCount == 0 && spclCharCount == 0 && numCount == 0){
+                if(lowerCaseCount >= 1 && upperCaseCount == 0 && spclCharCount == 0 && numCount == 0){
 
                     p.innerText = "";
                     p.style.color = "red";
-                    p.innerText = "Password Strength: 'WEAK'";
-                }else if(lowerCaseCount == 0 && upperCaseCount >= 8  && spclCharCount == 0 && numCount == 0){
-                    
+                    p.innerText = "Password Strength: 'WEAK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "red";
+                }else if(lowerCaseCount == 0 && upperCaseCount >= 1 && spclCharCount == 0 && numCount == 0){
+                
                     p.innerText = "";
-                    p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'WEAK'";
-                }else if(lowerCaseCount > 1 && upperCaseCount > 1  && spclCharCount == 0  && numCount == 0){
+                    p.style.color = "red";
+                    p.innerText = "Password Strength: 'WEAK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "red";
+                }else if(lowerCaseCount == 0 && upperCaseCount == 0 && spclCharCount >= 1 && numCount == 0){
+                
+                    p.innerText = "";
+                    p.style.color = "red";
+                    p.innerText = "Password Strength: 'WEAK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "red";
+                }else if(lowerCaseCount == 0 && upperCaseCount == 0 && spclCharCount == 0 && numCount >= 1){
+
+                    p.innerText = "";
+                    p.style.color = "red";
+                    p.innerText = "Password Strength: 'WEAK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "red";
+                }else if(lowerCaseCount >= 1 && upperCaseCount >= 1 && spclCharCount == 0 && numCount == 0){
 
                     p.innerText = "";
                     p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'OK'";
-                }else if(lowerCaseCount == 0 && upperCaseCount == 0  && spclCharCount >= 8  && numCount == 0){
+                    p.innerText = "Password Strength: 'OK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "orangered";
+                }else if(lowerCaseCount >= 1 && upperCaseCount >= 1 && spclCharCount >= 1 && numCount == 0){
 
                     p.innerText = "";
                     p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'FINE'";
-                }else if(lowerCaseCount == 0 && upperCaseCount == 0  && spclCharCount == 0  && numCount >= 8){
+                    p.innerText = "Password Strength: 'MODERATE',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "orangered";
+                }else if(lowerCaseCount >= 1 && upperCaseCount >= 1 && spclCharCount >= 1 && numCount >= 1){
 
                     p.innerText = "";
-                    p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'FINE'";
-                }else if(lowerCaseCount > 1 && upperCaseCount > 1  && spclCharCount > 1  && numCount == 0){
-
-                    p.innerText = "";
-                    p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'MODERATE'";
-                }else if(lowerCaseCount > 1 && upperCaseCount > 1  && spclCharCount == 0  && numCount > 1){
-
-                    p.innerText = "";
-                    p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'MODERATE'";
-                }else if(lowerCaseCount > 1 && upperCaseCount == 0  && spclCharCount > 1  && numCount > 1){
-
-                    p.innerText = "";
-                    p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'MODERATE'";
-                }else if(lowerCaseCount == 0 && upperCaseCount > 1  && spclCharCount > 1  && numCount > 1){
-
-                    p.innerText = "";
-                    p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'MODERATE'";
-                }else if(lowerCaseCount > 1 && upperCaseCount > 1  && spclCharCount > 1  && numCount > 1){
-
-                    p.innerText = "";
-                    p.style.color = "orangered";
+                    p.style.color = "green";
                     p.innerText = "Password Strength: 'STRONG'";
+                    input.style.borderColor = "green";
+                }else if(lowerCaseCount == 0 && upperCaseCount >= 1 && spclCharCount >= 1 && numCount == 0){
+
+                    p.innerText = "";
+                    p.style.color = "orangered";
+                    p.innerText = "Password Strength: 'OK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "orangered";
+                }else if(lowerCaseCount == 0 && upperCaseCount >= 1 && spclCharCount >= 1 && numCount >= 1){
+
+                    p.innerText = "";
+                    p.style.color = "oragnered";
+                    p.innerText = "Password Strength: 'MODERATE',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "oragnered";
+                }else if(lowerCaseCount == 0 && upperCaseCount == 0 && spclCharCount >= 1 && numCount >= 1){
+
+                    p.innerText = "";
+                    p.style.color = "orangered";
+                    p.innerText = "Password Strength: 'OK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "orangered";
+                }else if(lowerCaseCount >= 1 && upperCaseCount == 0 && spclCharCount == 0 && numCount >= 1){
+
+                    p.innerText = "";
+                    p.style.color = "orangered";
+                    p.innerText = "Password Strength: 'OK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "orangered";
+                }else if(lowerCaseCount == 0 && upperCaseCount >=1 && spclCharCount == 0 && numCount >= 1){
+
+                    p.innerText = "";
+                    p.style.color = "orangered";
+                    p.innerText = "Password Strength: 'OK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "orangered";
+                }else if(lowerCaseCount >= 1 && upperCaseCount == 0 && spclCharCount >= 1 && numCount == 0){
+
+                    p.innerText = "";
+                    p.style.color = "orangered";
+                    p.innerText = "Password Strength: 'OK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "oragnered";
+                }else if(lowerCaseCount >= 1 && upperCaseCount == 0 && spclCharCount >= 1 && numCount >= 1){
+
+                    p.innerText = "";
+                    p.style.color = "orangered";
+                    p.innerText = "Password Strength: 'MODERATE',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "oragnered";
                 }
             }else if(pass.length > 20 ){
                
@@ -670,56 +930,90 @@ let checkPass = (input,pass) => {
                 p.innerText = "cannot be less than 8 characters";
             }else if(pass.length >= 8 && pass.length <= 20){
 
-                if(lowerCaseCount >= 8 && upperCaseCount == 0 && spclCharCount == 0 && numCount == 0){
+                if(lowerCaseCount >= 1 && upperCaseCount == 0 && spclCharCount == 0 && numCount == 0){
 
                     p.innerText = "";
                     p.style.color = "red";
-                    p.innerText = "Password Strength: 'WEAK'";
-                }else if(lowerCaseCount == 0 && upperCaseCount >= 8  && spclCharCount == 0 && numCount == 0){
-                    
+                    p.innerText = "Password Strength: 'WEAK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "red";
+                }else if(lowerCaseCount == 0 && upperCaseCount >= 1 && spclCharCount == 0 && numCount == 0){
+                
                     p.innerText = "";
-                    p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'WEAK'";
-                }else if(lowerCaseCount > 1 && upperCaseCount > 1  && spclCharCount == 0  && numCount == 0){
+                    p.style.color = "red";
+                    p.innerText = "Password Strength: 'WEAK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "red";
+                }else if(lowerCaseCount == 0 && upperCaseCount == 0 && spclCharCount >= 1 && numCount == 0){
+                
+                    p.innerText = "";
+                    p.style.color = "red";
+                    p.innerText = "Password Strength: 'WEAK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "red";
+                }else if(lowerCaseCount == 0 && upperCaseCount == 0 && spclCharCount == 0 && numCount >= 1){
+
+                    p.innerText = "";
+                    p.style.color = "red";
+                    p.innerText = "Password Strength: 'WEAK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "red";
+                }else if(lowerCaseCount >= 1 && upperCaseCount >= 1 && spclCharCount == 0 && numCount == 0){
 
                     p.innerText = "";
                     p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'OK'";
-                }else if(lowerCaseCount == 0 && upperCaseCount == 0  && spclCharCount >= 8  && numCount == 0){
+                    p.innerText = "Password Strength: 'OK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "orangered";
+                }else if(lowerCaseCount >= 1 && upperCaseCount >= 1 && spclCharCount >= 1 && numCount == 0){
 
                     p.innerText = "";
                     p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'FINE'";
-                }else if(lowerCaseCount == 0 && upperCaseCount == 0  && spclCharCount == 0  && numCount >= 8){
+                    p.innerText = "Password Strength: 'MODERATE',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "orangered";
+                }else if(lowerCaseCount >= 1 && upperCaseCount >= 1 && spclCharCount >= 1 && numCount >= 1){
 
                     p.innerText = "";
-                    p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'FINE'";
-                }else if(lowerCaseCount > 1 && upperCaseCount > 1  && spclCharCount > 1  && numCount == 0){
-
-                    p.innerText = "";
-                    p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'MODERATE'";
-                }else if(lowerCaseCount > 1 && upperCaseCount > 1  && spclCharCount == 0  && numCount > 1){
-
-                    p.innerText = "";
-                    p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'MODERATE'";
-                }else if(lowerCaseCount > 1 && upperCaseCount == 0  && spclCharCount > 1  && numCount > 1){
-
-                    p.innerText = "";
-                    p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'MODERATE'";
-                }else if(lowerCaseCount == 0 && upperCaseCount > 1  && spclCharCount > 1  && numCount > 1){
-
-                    p.innerText = "";
-                    p.style.color = "orangered";
-                    p.innerText = "Password Strength: 'MODERATE'";
-                }else if(lowerCaseCount > 1 && upperCaseCount > 1  && spclCharCount > 1  && numCount > 1){
-
-                    p.innerText = "";
-                    p.style.color = "orangered";
+                    p.style.color = "green";
                     p.innerText = "Password Strength: 'STRONG'";
+                    input.style.borderColor = "green";
+                }else if(lowerCaseCount == 0 && upperCaseCount >= 1 && spclCharCount >= 1 && numCount == 0){
+
+                    p.innerText = "";
+                    p.style.color = "orangered";
+                    p.innerText = "Password Strength: 'OK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "orangered";
+                }else if(lowerCaseCount == 0 && upperCaseCount >= 1 && spclCharCount >= 1 && numCount >= 1){
+
+                    p.innerText = "";
+                    p.style.color = "oragnered";
+                    p.innerText = "Password Strength: 'MODERATE',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "oragnered";
+                }else if(lowerCaseCount == 0 && upperCaseCount == 0 && spclCharCount >= 1 && numCount >= 1){
+
+                    p.innerText = "";
+                    p.style.color = "orangered";
+                    p.innerText = "Password Strength: 'OK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "orangered";
+                }else if(lowerCaseCount >= 1 && upperCaseCount == 0 && spclCharCount == 0 && numCount >= 1){
+
+                    p.innerText = "";
+                    p.style.color = "orangered";
+                    p.innerText = "Password Strength: 'OK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "orangered";
+                }else if(lowerCaseCount == 0 && upperCaseCount >=1 && spclCharCount == 0 && numCount >= 1){
+
+                    p.innerText = "";
+                    p.style.color = "orangered";
+                    p.innerText = "Password Strength: 'OK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "orangered";
+                }else if(lowerCaseCount >= 1 && upperCaseCount == 0 && spclCharCount >= 1 && numCount == 0){
+
+                    p.innerText = "";
+                    p.style.color = "orangered";
+                    p.innerText = "Password Strength: 'OK',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "oragnered";
+                }else if(lowerCaseCount >= 1 && upperCaseCount == 0 && spclCharCount >= 1 && numCount >= 1){
+
+                    p.innerText = "";
+                    p.style.color = "orangered";
+                    p.innerText = "Password Strength: 'MODERATE',\n use combination of lower & uppercase letters,special characters,numbers to make strong password";
+                    input.style.borderColor = "oragnered";
                 }
             }else if(pass.length > 20 ){
                
@@ -733,6 +1027,11 @@ let checkPass = (input,pass) => {
         }
 
     }
+    if(input.value == ""){
+        p.innerText = "";
+        input.style.borderColor = "grey";
+       }
+        // input.onblur = function(){p.innerText = "";};
 }
 let showPass = () => {
 
@@ -749,4 +1048,158 @@ let showPass = () => {
         input.type = "password";
         textChange.innerText = "Show"
     }
+}
+//--------------------------------------------------------login  username input check-------------------------------------------------------------------
+
+let checkLoginUsername = (input,u) => {
+    // console.log(u)
+
+    let periodCount = 0;
+    let underscoreCount = 0;
+    let p =  document.getElementById("p1");
+    let userinfo = JSON.parse(localStorage.getItem("userData")) || [];
+    for(let i=0; i<u.length; i++){
+
+        if(u.charCodeAt(i) >= 97 && u.charCodeAt(i) <=122 || u.charCodeAt(i) >= 48 && u.charCodeAt(i) <= 57 || u[i] == "_" || u[i] == "." ){
+           
+                if(u.length < 6){
+                    p.innerText = "";
+                    p.style.color = "red";
+                    p.innerText = "User-Name cannot be less than 6 characters";
+                    input.style.borderColor = "red";
+                    
+                }else if(u.length > 30 ){
+                    p.innerText = "";
+                    p.style.color = "red";
+                    p.innerText = "User-Name cannot be more than 30 characters";
+                    input.style.borderColor = "red";
+                    input.setAttribute("readonly",true);
+                    setTimeout(function(){ input.removeAttribute("readonly"); input.value = ""; p.innerText = ""; input.style.borderColor = "grey";},4000);
+                    return;
+                }
+                // else{
+                //     p.innerText = "";
+                //     p.style.color = "green";
+                //     p.innerText = "So far, User-name looks good !!";
+                // }
+                
+                else if(u[i] == "."){
+                    
+                    if(u[i-1] == "."){
+
+                        p.innerText = "";
+                        p.style.color = "red";
+                        p.innerText = "cannot have 2 periods '.' consecutively";
+                        input.style.borderColor = "red";
+                        input.setAttribute("readonly",true);
+                        setTimeout(function(){ input.removeAttribute("readonly"); input.value = ""; p.innerText = ""; input.style.borderColor = "grey";},4000);
+                        return;
+                    }
+                    // else{
+                    //     periodCount++;
+                    // }
+
+                }else if(u[i] == "_"){
+
+                    if(u[i-1] == "_"){
+
+                        p.innerText = "";
+                        p.style.color = "red";
+                        p.innerText = "cannot have 2 '_' consecutively";
+                        input.style.borderColor = "red";
+                        input.setAttribute("readonly",true);
+                        setTimeout(function(){ input.removeAttribute("readonly"); input.value = ""; p.innerText = ""; input.style.borderColor = "grey";},4000);
+                        return;
+                    } 
+                }
+
+                else if(userinfo.length == 0){
+                    p.innerText = "";
+                    p.style.color = "green";
+                    p.innerText = "User-Name available";
+                    input.style.borderColor = "green";
+                    // console.log("hello")
+                }else{
+                    let flag = false;
+                    userinfo.forEach((el) => {
+                        
+                        if(u == el.username){
+
+                            // console.log("boom")
+                            flag = true;
+                            p.innerText = "";
+                            p.innerText = "1 user found in Data Base...";
+                            p.style.color = "green";
+                            input.style.borderColor = "green";
+                            // input.setAttribute("readonly",true);
+                            // setTimeout(function(){ input.removeAttribute("readonly"); input.value = ""; p.innerText = ""; input.style.borderColor = "grey";},4000);
+                            return;   
+                        }
+                        
+                    })
+                   
+                        // console.log("hi")
+                        if(flag === false){
+
+                            p.innerText = "";
+                            p.style.color = "red";
+                            p.innerText = "Can't find this User-Name in Data Base... ";
+                            input.style.borderColor = "red";
+                        }
+                    
+                }
+            }else if(u.charCodeAt(i) >= 65 && u.charCodeAt(i) <= 90){
+
+                p.innerText = "";
+                p.style.color = "red";
+                p.innerText = "UPPER-CASE not allowed";
+                input.style.borderColor = "red";
+                input.setAttribute("readonly",true);
+                setTimeout(function(){ input.removeAttribute("readonly"); input.value = ""; p.innerText = ""; input.style.borderColor = "grey";},4000);
+                return; 
+            }else{
+                p.innerText = "";
+                p.style.color = "red";
+                p.innerText = "only '@', '.' and '_' allowed !!";
+                input.style.borderColor = "red";
+                input.setAttribute("readonly",true);
+                setTimeout(function(){ input.removeAttribute("readonly"); input.value = ""; p.innerText = ""; input.style.borderColor = "grey";},4000);
+                return;
+            }
+    }
+    if(input.value == ""){
+        p.innerText = "";
+        input.style.borderColor = "grey";
+    }
+    input.onblur = function(){p.innerText = "";};
+}
+
+//-------------------------------------------login password check-------------------------------------
+
+let checkLoginPass = (input,username,pass) => {
+   console.log(pass);
+   let p =  document.getElementById("p2");
+   let detailsArr = JSON.parse(localStorage.getItem("userData")) || [];
+   let flag = false;
+   detailsArr.forEach((el)=> {
+      if(pass == el.password && username == el.username){
+        flag = true;
+        p.innerText = "";
+        p.innerText = "password Matched...Click Login Button.."
+        p.style.color = "green";
+        input.style.borderColor = "green";
+        return;
+      }
+   })
+   if(flag == false){
+   
+        p.innerText = "";
+        p.innerText = "Incorrect Password, Pls check..."
+        p.style.color = "red";
+        input.style.borderColor = "red";
+   }
+   if(input.value == ""){
+    p.innerText = "";
+    input.style.borderColor = "grey";
+   }
 }

@@ -1,12 +1,4 @@
-/*------------------------------------------------------body CSS -------------------------------------------------------------------------------*/
-
-body{
-    background-color: whitesmoke;
-}
-
-
 /* ------------------------------------------------------Navbar CSS------------------------------------------------ */
-
 #navbar{
     /* border: 1px solid black; */
     width: 100%;
@@ -16,7 +8,7 @@ body{
 }
 #leftt{
     /* border: 1px solid red; */
-    width: 40%;
+    width: 80%;
     display: flex;
     justify-content: space-around;
 }
@@ -25,7 +17,7 @@ body{
 }
 #rightt{
     /* border: 1px solid red; */
-    width: 20%; 
+    width: 25%; 
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -37,7 +29,7 @@ body{
 }
 .dropdown{
     display: none;
-    margin-left: -168px;
+    margin-left: -345px;
     position: absolute;
     /* border: 1px solid black; */
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -51,24 +43,24 @@ body{
     color: blue;
     line-height: 30px;
 }
-.container{
+.contain{
     /* border: 1px solid red; */
     height: 50px;
 }
-.container:hover{
+.contain:hover{
     cursor: pointer;
 }
-.container:hover .dropdown{
+.contain:hover .dropdown{
     display: block;
     display: flex;
     gap: 50px;
     cursor: auto;
 }
 #second_dropdown{
-    margin-left: -295px;
+    margin-left: -600px;
 }
 #third_dropdown{
-    margin-left: -460px;
+    margin-left: -890px;
 
 }
 
@@ -111,7 +103,7 @@ body{
     position: relative;
     right: 50px;;
 }
-.box{
+.boxx{
     /* border: 1px solid green; */
     height: 200px;
     padding-left: 20px;
@@ -126,7 +118,29 @@ body{
     z-index: 2;
 }
 
+/* Hamburger Dropdown Menu Option */
+
+.hamburger{
+    display: none;
+    cursor: pointer;
+}
+
+.bar{
+    display: block;
+    height: 3px;
+    width: 25px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #333;
+    color: #fff;
+}
+
 /* --------------------------------------------------------------------------------------------------------------------------------------- */
+
+
+/*-------------------------------------------navbar CSS ends here----------------------*/
+
 /*--------------------------------------------------------------------LOGIN & SIGNUP--------------------------------------------------------*/
 
 
@@ -137,11 +151,12 @@ body{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     background-color: white;
     width: 50%;
-    height: 430px;
+    height: auto;
     margin: auto;
     margin-top: 90px;
     display: flex;
     padding: 20px;
+    /* color: green; */
 }
 
 /*--------------left div--------------------------*/
@@ -209,8 +224,10 @@ body{
     cursor: pointer;
 }
 #ls_bar p{
+    width: auto;
     font-weight: bold;
     color: white;
+    
 }
 #switch{
     /* border: 1px solid black; */
@@ -229,7 +246,7 @@ body{
     color: black;
 }
 #inputs_container{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 90%;
     margin: auto;
     margin-top: 10px;
@@ -333,4 +350,167 @@ body{
     left: 1048px;
     font-size: 14px;
     cursor: pointer;
+}
+
+/*---------------------------------------------------------------- Media Queries Part for Navbar */
+
+@media screen and (min-width: 500px) and (max-width: 800px){
+
+    #leftt{
+        width: 100%;
+        margin: auto;
+        flex-direction: column;
+        
+    }
+
+    .contain{
+        height: auto;
+        position: none;
+    }
+
+    .temp{
+        width: 100%;
+        line-height: 50px;
+        margin: auto;
+    }
+
+    .dropdown{
+        width: 100%;
+        z-index: auto;
+        margin-left: 0px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        cursor: auto;
+        position: static;
+        color: blue;
+    }
+
+    #second_dropdown{
+        margin-left: 0px;
+        color: #333;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .tim{
+        display: none;
+    }
+
+    #third_dropdown{
+        display: none;
+    }
+    
+    /* .container:not:hover .dropdown{
+        display: block;
+        display: flex;
+        gap: 50px;
+        cursor: auto;
+    } */
+
+    #rightt{
+        
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        /* text-align: left; */
+    }
+
+    .hamburger{
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    #leftt{
+        position:fixed;
+        left: 100%;
+        top: 80px;
+        gap: 0;
+        width: 100%;
+        transition: 0.3s;
+        background-color: white;
+        z-index: 2;
+    }
+
+    #leftt.active, #rightt.active{
+        left: 0;
+    }
+
+/*---------------media queries for login/signup--------------------------------*/
+
+  /* #capsule{
+    border-color: blue;  
+    width: 80%;
+    margin-left: 300px;
+  } */
+  #content-box{
+     width: 70%;
+     display: block;
+
+  }
+  #left{
+    display: none;
+    width: none;
+    height: 0px;
+    position: relative;
+  }
+  img{
+    display: none;
+    width: 0px;
+  }
+  #right{
+    width: 100%;
+  }
+  #para01{
+    display: none;
+  }
+  h4{
+    display: none;
+  }
+  #para{
+    display: none;
+  }
+  #ls_bar{
+    margin: auto;
+    width: 300px;
+  }
+  #signup{
+    width: 190px;
+  }
+  #login{
+    width: 190px;
+  }
+  #switch{
+    width: 150px;
+  }
+  #input1{
+    width: 290px;
+  }
+  #input2{
+    width: 290px;
+  }
+  #input3{
+    width: 290px;
+  }
+  #input4{
+    width: 290px;
+  }
+  #input5{
+    width: 290px;
+  }
+  #showPass{
+    display: none;
+  }
 }
