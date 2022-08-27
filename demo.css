@@ -13,7 +13,7 @@ body,html {
           border-radius: 0 0 0 100px;
           transform: rotate(-12deg);
           transform-origin: left;
-          height: 50rem;
+           height: 50rem; 
           position: absolute;
           background: linear-gradient(106.71deg, #4300A3 11.13%, #6100BB 65.15%, #A700F1 96.91%);
           z-index: -1; 
@@ -29,12 +29,13 @@ display: block;
 }
 #logo img{
 width: 9%;
-margin: 0px 0px 0px 1030px;
+margin: 0px 0px 0px 1000px;
 margin-top: 70px;
 }
 #heading{
 display: flex;
 margin: auto;
+width: 100%;
 }
 #para{
 height: auto;
@@ -126,7 +127,7 @@ a{
       width: 50%;
       /* border: 1px solid red; */
       margin-top: 120px;
-      margin-left: 265px;
+      margin-left: 250px;
 }
 .para-mid{
       width: 64%;
@@ -143,6 +144,7 @@ a{
  .second-para{
       border-bottom: 1px solid rgb(31, 30, 30);
       margin-top: 120px;
+      /* width: 100%; */
 
 } 
 
@@ -164,9 +166,3 @@ margin-top: 30px;
 .abc{
       margin-left: -180px;
 }
-
-
-
-
-
-
