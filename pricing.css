@@ -1310,8 +1310,7 @@ a {
     margin-left: 10px;
 }
 
-@media (min-width: 500px){
-    /* footer designing Part*/
+/* footer designing Part*/
 #foot {
     width: 100%;
     margin-top: 100px;
@@ -1354,7 +1353,7 @@ a {
     margin-top: 20px;
     margin-right: 35px;
 }
-}
+
 @media screen and (min-width: 500px) and (max-width: 800px){
     .p-header {
         text-align: center;
@@ -1386,6 +1385,50 @@ a {
         width: 750px;
     }
 
+    #end_above{
+        height: 750px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #k1{
+        width: 100%;
+        margin-top: 450px;
+    }
+
+    #k4{
+        order: 2;
+        top: 40px;
+        left: 250px;
+    }
+    
+    #big{
+        font-size: 2rem;
+        margin: 0;
+        text-align: center;
+    }
+
+    #k2{
+        flex-direction: column;
+    }
+
+    #email{
+        margin-left: 200px;
+    }
+
+    #btn{
+        display: block;
+        width: 20%;
+        margin: auto;
+    }
+
+    #alert{
+        text-align: center;
+    }
+
+    .comp_services{
+        flex-direction: column;
+    }
 }
 
 @media screen and (min-width: 800px) and (max-width: 1200px) {
