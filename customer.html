@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
+   <link rel="stylesheet" href="customer.css">
     <title>Customers</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <style>
@@ -648,244 +648,274 @@
     <!--------------------------------------------------------------NAVBAR STARTS HERE----------------------------------------------------------->
     <!-------------------------------------------------------------------------------------------------------------------------------------------->
    
-    <div id="navbar">                      <!-- navbar div container-->
+    <div id="navbar">
+        <!-- navbar div container-->
+        <!-----------------------------------"Chargebee"----------------------------------------->
+        <a href="" style="text-decoration: none; color: black;">
+            <h1 id="siteName" style="font-family: 'Dancing Script', cursive;">Chargebee</h1>
+        </a> <!-- 1st item in left side-->
+        <div id="leftt">
+            <!-- navbar left side portion contianing navigation links to various pages -->
 
-        <div id="leftt">                    <!-- navbar left side portion contianing navigation links to various pages -->
+            <!-------------------------"Products" dropdown menu--------------------------------------->
 
-<!-----------------------------------"Chargebee"----------------------------------------->
-           <a href="" style="text-decoration: none; color: black;"> <h1 id="siteName" style="font-family: 'Dancing Script', cursive;">Chargebee</h1> </a>       <!-- 1st item in left side-->
+            <div class="contain">
+                <!--contianer div for dropdown menu-->
 
-<!-------------------------"Products" dropdown menu--------------------------------------->
-           
-            <div class="container">               <!--contianer div for dropdown menu-->
+                <p class="head" style="font-weight:bold;">Product</p> <!-- 2nd item in left side-->
 
-                <p class="head" style="font-weight:bold;">Product</p>          <!-- 2nd item in left side-->
-                
-                    <div class="dropdown">           <!-- dropdown div only visible when hovering over "Product" item in navbar-->
+                <div class="dropdown">
+                    <!-- dropdown div only visible when hovering over "Product" item in navbar-->
 
-                        <div id="one">            <!-- 1st div inside dropdown menu div. contains unordered list of links to various pages-->
-                            <ul type="none">
-                                <li style="font-weight: bold;"> Subscription Management </li>
-                                <li> <a href="">Overview</a> </li>
-                                <li> <a href="">Create & Manage Plans</a> </li>
-                                <li> <a href="">Pricing Management</a> </li>
-                                <li> <a href="">Retention</a> </li>
-                                <li> <a href="">Handle Trial Subscription</a> </li>
-                                <li> <a href="">Customer Self-service Portal</a> </li>
-                                <li> <a href="">Mobile Solutions</a> </li>
-                                <li> <a href="">Backdating Subscription</a> </li>
-                            </ul>
-                            
-                        </div>
+                    <div id="one">
+                        <!-- 1st div inside dropdown menu div. contains unordered list of links to various pages-->
+                        <ul type="none">
+                            <li style="font-weight: bold;"> Subscription Management </li>
+                            <li class="tim"> <a href="">Overview</a> </li>
+                            <li class="tim"> <a href="">Create & Manage Plans</a> </li>
+                            <li class="tim"> <a href="">Pricing Management</a> </li>
+                            <li class="tim"> <a href="">Retention</a> </li>
+                            <li class="tim"> <a href="">Handle Trial Subscription</a> </li>
+                            <li class="tim"> <a href="">Customer Self-service Portal</a> </li>
+                            <li class="tim"> <a href="">Mobile Solutions</a> </li>
+                            <li class="tim"> <a href="">Backdating Subscription</a> </li>
+                        </ul>
 
-                        <div id="two">
-                            <ul type="none">
-
-                                <li style="font-weight: bold;"> Billing Automation </li>
-                                <li> <a href="">Overview</a> </li>
-                                <li> <a href="">Usage Based Billing</a> </li>
-                                <li> <a href="">Invoicing Automation</a> </li>
-                                <li> <a href="">Quotes</a> </li>
-                                <li> <a href="">Proration</a> </li>
-                            </ul>
-                        </div>
-
-                        <div id="three">
-                            <ul type="none">
-                                <li style="font-weight: bold;">Recurring Payments</li>
-                                <li> <a href="">Overview</a> </li>
-                                <li> <a href="">Multiple Payment Methods</a> </li>
-                                <li> <a href="">Multiple Payment Gateways</a> </li>
-                                <li> <a href="">Smart Dunning</a> </li>
-                                <li> <a href="">Chargeback Management</a> </li>
-                                <li> <a href="">Checkout Experience</a> </li>
-                                <li> <a href="">Receivables</a> </li>
-                            </ul>
-                        </div>
-
-                        <div id="four">
-                            <ul type="none">
-                                <li style="font-weight: bold;">Accounting & taxes</li>
-                                <li> <a href="">Overview</a> </li>
-                                <li> <a href="">Revenue Recognition</a> </li>
-                                <li> <a href="">Manage Sales Tax</a> </li>
-                                <li> <a href="">One-Click Reconciliation</a> </li>
-                            </ul>
-                        </div>
-
-                        <div id="five">
-                            <ul type="none">
-                                <li style="font-weight: bold;">Reporting & Analytics</li>
-                                <li> <a href="">Overview</a> </li>
-                                <li> <a href="">Deferred Revenue Reporting</a> </li>
-                            </ul>
-
-                        </div>
                     </div>
 
-            </div>
-<!-----------------------------------"Pricing"-------------------------------->
+                    <div id="two">
+                        <ul type="none">
 
-            <p> <a href="" style="text-decoration: none; color: black;">Pricing</a> </p>
-
-<!---------------------------"Solutions" dropdown menu-------------------------->
-
-            <div class="container">               <!--contianer div for dropdown menu-->
-
-                <p class="head" style="font-weight:bold;">Solutions</p>          <!-- 4th item in left side-->
-                
-                    <div class="dropdown" id="second_dropdown">           <!-- dropdown div only visible when hovering over "Solutions" item in navbar-->
-
-                        <div id="one">            <!-- 1st div inside dropdown menu div. contains unordered list of links to various pages-->
-                            <ul type="none">
-                                <li style="font-weight: bold;"> By Role</li>
-                                <li> <a href="">Finance</a> </li>
-                                <li> <a href="">Sales</a> </li>
-                                <li> <a href="">RevOps</a> </li>
-                            </ul>
-                            
-                        </div>
-
-                        <div id="two">
-                            <ul type="none">
-
-                                <li style="font-weight: bold;"> By Industry </li>
-                                <li> <a href="">B2B SaaS</a> </li>
-                                <li> <a href="">eCommerce</a> </li>
-                                <li> <a href="">E-Learning</a> </li>
-                                <li> <a href="">Publishing</a> </li>
-                                <li> <a href="">Video & OTT</a> </li>
-                            </ul>
-                        </div>
-
-                        <div id="three">
-                            <ul type="none">
-                                <li style="font-weight: bold;">By Strategy</li>
-                                <li> <a href="">Role Out New Pricing</a> </li>
-                                <li> <a href="">Expand Gloabally</a> </li>
-                                <li> <a href="">Move Upmarket</a> </li>
-                                <li> <a href="">Shift to Subscription</a> </li>
-                            </ul>
-                        </div>
-
-                        <div id="four">
-                            <ul type="none">
-                                <li style="font-weight: bold;">By Business Size</li>
-                                <li> <a href="">Startup</a> </li>
-                                <li> <a href="">ScaleUp</a> </li>
-                                <li> <a href="">Enterprise</a> </li>
-                                
-                            </ul>
-                        </div>
-
-                        <div id="five">
-                            <ul type="none">
-                                <li style="font-weight: bold;">By Business Model</li>
-                                <li> <a href="">Self-Serve</a> </li>
-                                <li> <a href="">Sales Driven</a> </li>
-                            </ul>
-
-                        </div>
-
-                        <div id="six">
-                            <ul type="none">
-                                <li style="font-weight: bold;">By Geography</li>
-                                <li> <a href="">Europe</a> </li>
-                                <li> <a href="">Australia</a> </li>
-                                <li> <a href="">India</a> </li>
-                            </ul>
-
-                        </div>
+                            <li style="font-weight: bold;"> Billing Automation </li>
+                            <li class="tim"> <a href="">Overview</a> </li>
+                            <li class="tim"> <a href="">Usage Based Billing</a> </li>
+                            <li class="tim"> <a href="">Invoicing Automation</a> </li>
+                            <li class="tim"> <a href="">Quotes</a> </li>
+                            <li class="tim"> <a href="">Proration</a> </li>
+                        </ul>
                     </div>
 
-            </div>
-            
-            <p> <a href="" style="text-decoration: none; color: black;">Customers</a> </p>
-
-<!-----------------------------"Resources" dropdown menu---------------------->
-
-            <div class="container">               <!--contianer div for dropdown menu-->
-
-                <p class="head" style="font-weight:bold;">Resources</p>          <!-- 4th item in left side-->
-                
-                    <div class="dropdown" id="third_dropdown">           <!-- dropdown div only visible when hovering over "Solutions" item in navbar-->
-
-                        <div id="dropdown_left">
-
-                            <div class="box" style="background-color: rgb(252, 219, 224);">
-                                <p>Learn everything that falls under the umbrella of Subscription.</p>
-                                <p style="font-weight: bold"> <a href="" style="text-decoration: none; color: blue;">Learning Hub > </a> </p>
-                            </div>
-
-                            <div class="box"> 
-                                <p>Read our ever-growing stories on SaaS, and get all the growth insights you need.</p>
-                                <p style="font-weight: bold"> <a href="" style="text-decoration: none; color: blue;">Chargebee  Blog > </a> </p>
-                            </div>
-                            
-                            <div class="box"> 
-                                <p>A quick overview of Chargebee to help you understand and implement it.</p>
-                                <p style="font-weight: bold"> <a href="" style="text-decoration: none; color: blue;">Chargebee  Docs > </a>  </p> 
-                           </div>
-
-                            <div class="box"> 
-                                <p>Chargebee's in-house team of implementation experts is here ot make sure you go live with your Chargebee site at lighting-fast speed.</p>
-                                <p style="font-weight: bold"> <a href="" style="text-decoration: none; color: blue;">Profession al Services & Implementation > </a></p> 
-                            </div>
-
-                            <div class="box"> 
-                                <p>Learn to unlock all revenure secrets to secure hyper-growth for your business. Access free certifications, course and expert masterclasses.</p>
-                                <p style="font-weight: bold"> <a href="" style="text-decoration: none; color: blue;">Subscription Academy ></a></p> 
-                            </div>
-
-                            <div class="box"></div>
-
-                            <div class="box"> 
-                                <p>Explore the best practices of all things SaaS and Subscription Billing.</p>
-                                <p style="font-weight: bold"> <a href="" style="text-decoration: none; color: blue;">Webinars > </a> </p>
-                            </div>
-
-                            <div class="box"> 
-                                <p>Learn about the possibilities that change brings about and how Chargebee recognizes & celebrates change-makers by being an enabler of change.</p>
-                                <p style="font-weight: bold"> <a href="" style="text-decoration: none; color: blue;">Champions  of Change ></a></p> 
-                            </div>
-
-                            <div class="box"></div>
-
-                        </div>
-
-                        <img src="https://library.kissclipart.com/20200128/tve/kissclipart-books-icon-book-icon-closed-book-icon-2675fc0f6ecc665d.png" alt="" id="book">
-                        <div id="dropdown_right">
- 
-                            <p style="font-weight: bold;">The Essential Guide on Subscription Billing</p>
-
-                            <p>Wondering what you should ask yourself before choosing a Subscription Billing and Management platform?</p>
-
-                            <p> <a href="" style="font-weight: bold;">Read More > </a> </p>
-
-                        </div>
-                        
+                    <div id="three">
+                        <ul type="none">
+                            <li style="font-weight: bold;">Recurring Payments</li>
+                            <li class="tim"> <a href="">Overview</a> </li>
+                            <li class="tim"> <a href="">Multiple Payment Methods</a> </li>
+                            <li class="tim"> <a href="">Multiple Payment Gateways</a> </li>
+                            <li class="tim"> <a href="">Smart Dunning</a> </li>
+                            <li class="tim"> <a href="">Chargeback Management</a> </li>
+                            <li class="tim"> <a href="">Checkout Experience</a> </li>
+                            <li class="tim"> <a href="">Receivables</a> </li>
+                        </ul>
                     </div>
 
-            </div>
-<!-----------------------------------"Partners"----------------------->
+                    <div id="four">
+                        <ul type="none">
+                            <li style="font-weight: bold;">Accounting & taxes</li>
+                            <li class="tim"> <a href="">Overview</a> </li>
+                            <li class="tim"> <a href="">Revenue Recognition</a> </li>
+                            <li class="tim"> <a href="">Manage Sales Tax</a> </li>
+                            <li class="tim"> <a href="">One-Click Reconciliation</a> </li>
+                        </ul>
+                    </div>
 
-            <p> <a href="" style="text-decoration: none; color: black;">Partners</a> </p>
+                    <div id="five">
+                        <ul type="none">
+                            <li style="font-weight: bold;">Reporting & Analytics</li>
+                            <li class="tim"> <a href="">Overview</a> </li>
+                            <li class="tim"> <a href="">Deferred Revenue Reporting</a> </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-----------------------------------"Pricing"-------------------------------->
+
+            <p class="temp"> <a href="" style="text-decoration: none; color: black;">Pricing</a> </p>
+
+            <!---------------------------"Solutions" dropdown menu-------------------------->
+
+            <div class="contain">
+                <!--contianer div for dropdown menu-->
+
+                <p class="head" style="font-weight:bold;">Solutions</p> <!-- 4th item in left side-->
+
+                <div class="dropdown" id="second_dropdown">
+                    <!-- dropdown div only visible when hovering over "Solutions" item in navbar-->
+
+                    <div id="one">
+                        <!-- 1st div inside dropdown menu div. contains unordered list of links to various pages-->
+                        <ul type="none">
+                            <li style="font-weight: bold;"> By Role</li>
+                            <li> <a href="">Finance</a> </li>
+                            <li> <a href="">Sales</a> </li>
+                            <li> <a href="">RevOps</a> </li>
+                        </ul>
+
+                    </div>
+
+                    <div id="two">
+                        <ul type="none">
+
+                            <li style="font-weight: bold;"> By Industry </li>
+                            <li> <a href="">B2B SaaS</a> </li>
+                            <li> <a href="">eCommerce</a> </li>
+                            <li> <a href="">E-Learning</a> </li>
+                            <li> <a href="">Publishing</a> </li>
+                            <li> <a href="">Video & OTT</a> </li>
+                        </ul>
+                    </div>
+
+                    <div id="three">
+                        <ul type="none">
+                            <li style="font-weight: bold;">By Strategy</li>
+                            <li> <a href="">Role Out New Pricing</a> </li>
+                            <li> <a href="">Expand Gloabally</a> </li>
+                            <li> <a href="">Move Upmarket</a> </li>
+                            <li> <a href="">Shift to Subscription</a> </li>
+                        </ul>
+                    </div>
+
+                    <div id="four">
+                        <ul type="none">
+                            <li style="font-weight: bold;">By Business Size</li>
+                            <li> <a href="">Startup</a> </li>
+                            <li> <a href="">ScaleUp</a> </li>
+                            <li> <a href="">Enterprise</a> </li>
+
+                        </ul>
+                    </div>
+
+                    <div id="five">
+                        <ul type="none">
+                            <li style="font-weight: bold;">By Business Model</li>
+                            <li> <a href="">Self-Serve</a> </li>
+                            <li> <a href="">Sales Driven</a> </li>
+                        </ul>
+
+                    </div>
+
+                    <div id="six">
+                        <ul type="none">
+                            <li style="font-weight: bold;">By Geography</li>
+                            <li> <a href="">Europe</a> </li>
+                            <li> <a href="">Australia</a> </li>
+                            <li> <a href="">India</a> </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="temp"> <a href="" style="text-decoration: none; color: black;">Customers</a> </p>
+
+            <!-----------------------------"Resources" dropdown menu---------------------->
+
+            <div class="contain">
+                <!--contianer div for dropdown menu-->
+
+                <p class="head" style="font-weight:bold;">Resources</p> <!-- 4th item in left side-->
+
+                <div class="dropdown" id="third_dropdown">
+                    <!-- dropdown div only visible when hovering over "Solutions" item in navbar-->
+
+                    <div id="dropdown_left">
+
+                        <div class="boxx" style="background-color: rgb(252, 219, 224);">
+                            <p>Learn everything that falls under the umbrella of Subscription.</p>
+                            <p style="font-weight: bold"> <a href=""
+                                    style="text-decoration: none; color: blue;">Learning Hub > </a> </p>
+                        </div>
+
+                        <div class="boxx">
+                            <p>Read our ever-growing stories on SaaS, and get all the growth insights you need.</p>
+                            <p style="font-weight: bold"> <a href=""
+                                    style="text-decoration: none; color: blue;">Chargebee Blog > </a> </p>
+                        </div>
+
+                        <div class="boxx">
+                            <p>A quick overview of Chargebee to help you understand and implement it.</p>
+                            <p style="font-weight: bold"> <a href=""
+                                    style="text-decoration: none; color: blue;">Chargebee Docs > </a> </p>
+                        </div>
+
+                        <div class="boxx">
+                            <p>Chargebee's in-house team of implementation experts is here ot make sure you go live with
+                                your Chargebee site at lighting-fast speed.</p>
+                            <p style="font-weight: bold"> <a href=""
+                                    style="text-decoration: none; color: blue;">Profession al Services & Implementation
+                                    > </a></p>
+                        </div>
+
+                        <div class="boxx">
+                            <p>Learn to unlock all revenure secrets to secure hyper-growth for your business. Access
+                                free certifications, course and expert masterclasses.</p>
+                            <p style="font-weight: bold"> <a href=""
+                                    style="text-decoration: none; color: blue;">Subscription Academy ></a></p>
+                        </div>
+
+                        <div class="boxx"></div>
+
+                        <div class="boxx">
+                            <p>Explore the best practices of all things SaaS and Subscription Billing.</p>
+                            <p style="font-weight: bold"> <a href=""
+                                    style="text-decoration: none; color: blue;">Webinars > </a> </p>
+                        </div>
+
+                        <div class="boxx">
+                            <p>Learn about the possibilities that change brings about and how Chargebee recognizes &
+                                celebrates change-makers by being an enabler of change.</p>
+                            <p style="font-weight: bold"> <a href=""
+                                    style="text-decoration: none; color: blue;">Champions of Change ></a></p>
+                        </div>
+
+                        <div class="boxx"></div>
+
+                    </div>
+
+                    <img src="https://library.kissclipart.com/20200128/tve/kissclipart-books-icon-book-icon-closed-book-icon-2675fc0f6ecc665d.png"
+                        alt="" id="book">
+                    <div id="dropdown_right">
+
+                        <p style="font-weight: bold;">The Essential Guide on Subscription Billing</p>
+
+                        <p>Wondering what you should ask yourself before choosing a Subscription Billing and Management
+                            platform?</p>
+
+                        <p> <a href="" style="font-weight: bold;">Read More > </a> </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <!-----------------------------------"Partners"----------------------->
+
+            <p class="temp"> <a href="" style="text-decoration: none; color: black;">Partners</a> </p>
+
+            <div id="rightt">
+                <!--right-most div of navbar containing change language, login page link and "get demo" button-->
+
+                <select id="changeLang">
+                    <option value="english">English</option>
+                    <option value="deutsch">Deutsch</option>
+                </select>
+
+                <p> <a href="" style="text-decoration: none; color: black; font-weight: bold;">Login </a> </p>
+
+                <button id="demo_btn">Get Demo > </button>
+
+            </div>
         </div>
 
-<!----------------------------------------------------------------------------------------------->
+        <!----------------------------------------------------------------------------------------------->
 
-        <div id="rightt">            <!--right-most div of navbar containing change language, login page link and "get demo" button-->
-
-            <select id="changeLang"> 
-                <option value="english">English</option>
-                <option value="deutsch">Deutsch</option>
-            </select>
-
-            <p> <a href="" style="text-decoration: none; color: black; font-weight: bold;">Login  </a> </p>
-
-            <button id="demo_btn">Get Demo > </button>
-
-
+        <!-- Hamburger Menu Option -->
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
         </div>
     </div>
 <!----------------------------------------------------------------------------------NAVBAR ENDS HERE---------------------------------------------------->
