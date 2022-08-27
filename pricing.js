@@ -28,16 +28,6 @@ txt1.remove();
 txt2.remove();
 txt3.remove();
 console.log('10')
-})
-
+});
 // <----------Nav.js------------->
 
-let hamburger = document.querySelector('.hamburger');
-let right = document.getElementById('leftt');
-let left = document.getElementById('rightt');
-
-hamburger.addEventListener('click', () =>{
-    hamburger.classList.toggle('active');
-    right.classList.toggle('active');
-    left.classList.toggle('active');
-});
