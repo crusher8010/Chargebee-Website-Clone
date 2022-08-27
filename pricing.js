@@ -5,9 +5,9 @@ monthly.addEventListener("click",function(){
 // anual.style.backgroundColor = "white"
 // m.style.backgroundColor = "rgb(232,219,251)"
 
-document.querySelector(".cpr-plan__div").innerHTML = "0/"
-document.querySelector(".cpr-plan__div").innerHTML = "23,890/mo"
-document.querySelector(".cpr-plan__div").innerHTML = "47,890/mo"
+document.querySelector(".cpr-plan__div").innerHTML = "0/";
+document.querySelector(".cpr-plan__div").innerHTML = "23,890/mo";
+document.querySelector(".cpr-plan__div").innerHTML = "47,890/mo";
 txt1.remove();
 txt2.remove();
 console.log('10')
