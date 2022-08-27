@@ -229,7 +229,7 @@ body{
     color: black;
 }
 #inputs_container{
-    /* border: 1px solid black; */
+    border: 1px solid black;
     width: 90%;
     margin: auto;
     margin-top: 10px;
@@ -326,4 +326,11 @@ body{
     margin-top: 0px;
     margin-bottom: 0px;
     width: 250px;
+}
+#showPass{
+    position: absolute;
+    top: 469px;
+    left: 1048px;
+    font-size: 14px;
+    cursor: pointer;
 }
