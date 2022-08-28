@@ -33,7 +33,7 @@
 }
 .dropdown{
     display: none;
-    margin-left: -400px;
+    margin-left: -340px;
     position: absolute;
     /* border: 1px solid black; */
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
