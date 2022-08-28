@@ -507,8 +507,8 @@ let checkUsername = (input,u) => {
                             p.innerText = "User-Name already exist,Try something else";
                             p.style.color = "red";
                             input.style.borderColor = "red";
-                            input.setAttribute("readonly",true);
-                            setTimeout(function(){ input.removeAttribute("readonly"); input.value = ""; p.innerText = ""; input.style.borderColor = "grey";},4000);
+                            // input.setAttribute("readonly",true);
+                            // setTimeout(function(){ input.removeAttribute("readonly"); input.value = ""; p.innerText = ""; input.style.borderColor = "grey";},4000);
                             return;   
                         }
                         
@@ -536,7 +536,7 @@ let checkUsername = (input,u) => {
             }else{
                 p.innerText = "";
                 p.style.color = "red";
-                p.innerText = "only '@', '.' and '_' allowed !!";
+                p.innerText = "only period '.' and underscore '_' allowed !!";
                 input.style.borderColor = "red";
                 input.setAttribute("readonly",true);
                 setTimeout(function(){ input.removeAttribute("readonly"); input.value = ""; p.innerText = ""; input.style.borderColor = "grey";},4000);
