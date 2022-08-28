@@ -56,7 +56,12 @@ body {
     height: auto;
     background-color: whitesmoke;
     z-index: 1;    
-    top: 60px;
+    top: 65px;
+}
+
+li{
+    list-style: none;
+    text-decoration: none;
 }
 
 .dropdown a{
