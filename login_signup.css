@@ -351,6 +351,11 @@
     font-size: 14px;
     cursor: pointer;
 }
+#sho{
+    position: absolute;
+    top: 300px;
+    left: 1040px;
+}
 
 /*---------------------------------------------------------------- Media Queries Part for Navbar */
 
