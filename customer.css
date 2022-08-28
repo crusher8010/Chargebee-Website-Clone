@@ -287,10 +287,7 @@
    
   
 }
-#midpart2>div{
-    /* display: flex; */
-    /* border: 1px solid; */
-}
+
 #midpart2>div:nth-child(1){
     width: 120%;
    
