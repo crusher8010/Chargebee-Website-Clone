@@ -45,7 +45,7 @@
     height: auto;
     background-color: whitesmoke;
     z-index: 1;    
-    top: 60px;
+    top: 80px;
 }
 
 .dropdown a{
@@ -152,6 +152,10 @@
     transition: all 0.3s ease-in-out;
     background-color: #333;
     color: #fff;
+}
+
+.yt{
+    font-size: 16px;
 }
 
 /* --------------------------------------------------------------------------------------------------------------------------------------- */

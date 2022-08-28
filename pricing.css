@@ -48,7 +48,7 @@ body {
 
 .dropdown{
     display: none;
-    margin-left: -300px;
+    margin-left: -320px;
     position: absolute;
     /* border: 1px solid black; */
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -81,7 +81,7 @@ body {
 }
 
 #second_dropdown{
-    margin-left: -500px;
+    margin-left: -560px;
 }
 
 #third_dropdown{
