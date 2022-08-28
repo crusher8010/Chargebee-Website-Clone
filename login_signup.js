@@ -125,6 +125,13 @@ let login = () => {
     p2.id = "p2";
     p2.style.fontSize = "13px";
 
+    let show = document.createElement("p");
+    show.innerText = "Show";
+    show.style.cursor = "pointer";
+    show.id = "sho";
+    show.style.fontSize = "14px";
+    show.onclick = function(){ showLoginPass(input2) }
+
     // input2.style.marginTop = "20px";
 
     let btn =  document.createElement("button");
@@ -133,7 +140,19 @@ let login = () => {
     btn.addEventListener("click", function(){ login_data(p1,p2,input1,input2,input1.value)});
     // btn.style.marginTop = "20px";
 
-    inputs_container.append(input1,p1,br,input2,p2,br1,btn);
+    inputs_container.append(input1,p1,br,input2,show,p2,br1,btn);
+}
+
+let showLoginPass = (input) => {
+
+    let s = document.getElementById("sho");
+    if(input.type === "password"){
+        input.type = "text";
+        s.innerText = "Hide"
+    }else{
+        input.type = "password";
+        s.innerText = "Show"
+    }
 }
 /*------------------------------------getting signup data-----------------------------------------------------*/
 
@@ -213,6 +232,10 @@ let checkName = (input,n) => {
     //can have 1 space
     //only alphabets, lowercase or uppercase
     let p =  document.getElementById("p1");
+    if(p.innerText != ""){
+
+        adjustShowDownS();
+    }
     let spaceCount = 0;
     
     let strCount = 0;
@@ -273,8 +296,9 @@ let checkName = (input,n) => {
     if(input.value == ""){
         p.innerText = "";
         input.style.borderColor = "grey";
+        adjustShowUpS();
     }
-    input.onblur = function(){p.innerText = "";};
+    input.onblur = function(){p.innerText = ""; adjustShowUpS();};
 }
 
 //----------------------------------check Email input----------------------------
@@ -286,6 +310,10 @@ let checkEmail = (input,e) => {
     // clearTimeout(id2);
     // console.log(e);
     let p =  document.getElementById("p2");
+    if(p.innerText != ""){
+
+        adjustShowDownS();
+    }
 
     let spaceCount = 0;
 
@@ -375,6 +403,7 @@ let checkEmail = (input,e) => {
 // console.log("the man was very strong")
     input.onblur = function(){
 
+        adjustShowUpS();
         
         p.innerText = "";
         
@@ -422,6 +451,7 @@ let checkEmail = (input,e) => {
     if(input.value == ""){
         p.innerText = "";
         input.style.borderColor = "grey";
+        adjustShowUpS();
     }
 }
 
@@ -433,6 +463,10 @@ let checkUsername = (input,u) => {
     let periodCount = 0;
     let underscoreCount = 0;
     let p =  document.getElementById("p3");
+    if(p.innerText != ""){
+
+        adjustShowDownS();
+    }
     let userinfo = JSON.parse(localStorage.getItem("userData")) || [];
     for(let i=0; i<u.length; i++){
 
@@ -546,8 +580,9 @@ let checkUsername = (input,u) => {
     if(input.value == ""){
         p.innerText = "";
         input.style.borderColor = "grey";
+        adjustShowUpS();
     }
-    input.onblur = function(){p.innerText = "";};
+    input.onblur = function(){p.innerText = ""; adjustShowUpS();};
 }
 
 //----------------------------------check Mobile number input----------------------------
@@ -555,6 +590,10 @@ let checkUsername = (input,u) => {
 let checkMobile = (input,m) => {
     // console.log(m)
     let p =  document.getElementById("p4");
+    if(p.innerText != ""){
+
+        adjustShowDownS();
+    }
    if(m.length < 10){
       
     console.log("hi")
@@ -583,8 +622,9 @@ let checkMobile = (input,m) => {
    if(input.value == ""){
     p.innerText = "";
     input.style.borderColor = "grey";
+    adjustShowUpS();
    }
-    input.onblur = function(){p.innerText = "";};
+    input.onblur = function(){p.innerText = ""; adjustShowUpS();};
 }
 
 //----------------------------------check Password input----------------------------
@@ -1054,9 +1094,15 @@ let showPass = () => {
 let checkLoginUsername = (input,u) => {
     // console.log(u)
 
+    
     let periodCount = 0;
     let underscoreCount = 0;
     let p =  document.getElementById("p1");
+    if(p.innerText != ""){
+
+        adjustShowDown();
+    }
+    
     let userinfo = JSON.parse(localStorage.getItem("userData")) || [];
     for(let i=0; i<u.length; i++){
 
@@ -1170,8 +1216,10 @@ let checkLoginUsername = (input,u) => {
     if(input.value == ""){
         p.innerText = "";
         input.style.borderColor = "grey";
+        adjustShowUp();
     }
-    input.onblur = function(){p.innerText = "";};
+    input.onblur = function(){p.innerText = ""; adjustShowUp()};
+   
 }
 
 //-------------------------------------------login password check-------------------------------------
@@ -1202,4 +1250,35 @@ let checkLoginPass = (input,username,pass) => {
     p.innerText = "";
     input.style.borderColor = "grey";
    }
+}
+
+let adjustShowDown = () => {
+
+    let s = document.getElementById("sho");
+    s.style.position = "absolute";
+    s.style.top = "320px";
+    
+    
+
+}
+let adjustShowUp = () => {
+
+    let s = document.getElementById("sho");
+
+    s.style.position = "absolute";
+    s.style.top = "300px";
+}
+
+//-----------------------------------------------for singup show button adjustment-------------------------------------------------
+
+let adjustShowDownS = () => {
+
+    let s = document.getElementById("showPass");
+    s.style.position = "absolute";
+    s.style.top = "480px";
+}
+let adjustShowUpS = () => {
+    let s = document.getElementById("showPass");
+    s.style.position = "absolute";
+    s.style.top = "469px";
 }
