@@ -79,6 +79,10 @@
 
 }
 
+.yt{
+    font-size: 16px;
+}
+
 /* --------LANGUAGE SELECT & "Demo" button-------------------------- */
 #changeLang{
     height: 30px;
