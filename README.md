@@ -7,19 +7,19 @@ This is a collaborative project made by 5 members within 5 days. We have taken r
 ## Screenshots
 
 ## Home Page
-![Home Page Screenshot](https://github.com/crusher8010/Chargebee-Website-Clone/blob/main/screenshots/Screenshot%20(121).png?raw=true)
+![Screenshot (121)](https://user-images.githubusercontent.com/107460084/214225231-341ddb93-81df-4038-95ea-1189f9f7e2c7.png)
 
 ## Pricing Page
-![Pricing Page Screenshot](https://github.com/crusher8010/Chargebee-Website-Clone/blob/main/screenshots/Screenshot%20(122).png?raw=true)
+![Screenshot (122)](https://user-images.githubusercontent.com/107460084/214225285-16772126-8991-46f3-956c-3958e2806112.png)
 
 ## Customer Page
-![Customer Page Screenshot](https://github.com/crusher8010/Chargebee-Website-Clone/blob/main/screenshots/Screenshot%20(123).png?raw=true)
+![Screenshot (123)](https://user-images.githubusercontent.com/107460084/214225374-7710c546-db15-403b-9932-f1d46b8eb766.png)
 
 ## Login Page
-![Login Page Screenshot](https://github.com/crusher8010/Chargebee-Website-Clone/blob/main/screenshots/Screenshot%20(124).png?raw=true)
+![Screenshot (124)](https://user-images.githubusercontent.com/107460084/214225418-8d2bc681-e074-454a-a30b-961ef23a94d7.png)
 
 ## Demo Page
-![Demo Screenshot](https://github.com/crusher8010/Chargebee-Website-Clone/blob/main/screenshots/Screenshot%20(125).png?raw=true)
+![Screenshot (125)](https://user-images.githubusercontent.com/107460084/214225480-29c837fe-7475-44d9-af8c-4fcc847816d3.png)
 
 
 
